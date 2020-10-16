@@ -1,0 +1,151 @@
+header{
+    float: left;
+    margin-left: 150px;
+}
+header img{
+    float: left;
+    margin-top:5px;
+    
+}
+h1{
+    font-size: 35px;
+    font-weight: normal;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:rgb(64, 129, 155);
+    margin: 10px 0px 0px 60px;
+}
+nav{
+    float: right;
+    padding-top: 0.5em;
+    padding-right: 1em;
+    padding: 0.5em 1em 0em 0em;
+}
+nav ul{
+    list-style-type: none;
+}
+nav ul li{
+    display: inline;
+    padding-right: 0.5em;
+}
+nav ul li a{
+    text-decoration: none;
+    color: gray;
+    font-size: 22px;
+}
+nav ul li a:hover{
+    background-color: rgba(192, 240, 240, 0.493);
+}
+.login{
+    padding-left: 4em;
+}
+main{
+    padding-top: 5em;
+}
+#content h2{
+    padding-top: 3em;
+    color:rgb(64, 129, 155);
+    font-family: monospace;
+    margin-left: 80px;
+    font-size: 30px;
+    font-weight: normal;
+}
+#content p{
+    margin-left: 80px;
+    color: gray;
+    line-height: 1.8;
+    padding-right: 45em;
+}
+#content img{
+    float: right;
+    padding-top: 3em;
+    width: 40%;
+    height: 40%;
+}
+section h2{
+    padding:0;
+    margin: 0;
+    font-size: 25px;
+}
+section img{
+    padding-top: 3em;
+}
+
+.account p, .solutions p{
+    color: gray;
+    font-size: 15px;
+    width: 20%;
+    padding: 1em;
+    margin: 0 auto;
+    background-color: white;
+}
+.product p{
+    color: gray;
+    font-size: 15px;
+    width: 20%;
+    padding: 1em;
+    margin: 0 auto;
+    background-color:rgba(192, 240, 240, 0.493);
+}
+section{
+    margin-top: 420px;
+}
+.account, .solutions{
+    float:left;  
+    background-color:rgba(192, 240, 240, 0.493); 
+    width:33.3%; 
+    padding-bottom: 5em;
+    text-align: center;
+}
+.product{
+    float:left; 
+    width:33.3%; 
+    padding-bottom: 5em;
+    text-align: center;
+}
+footer{
+    margin-top: 790px;
+    background-color:rgba(192, 240, 240, 0.493); 
+    color:rgb(64, 129, 155);
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-top: 2em;
+    text-align: center;
+}
+#mail{
+    border: white;
+    font-size: 12px;
+    padding: 1em 3em 1em 3em;
+}
+#subscribe{
+    color:white;
+    font-size: 12px;
+    background-color:rgb(64, 129, 155);
+    border:rgb(64, 129, 155);
+    padding: 1em 2em 1em 2em;
+}
+.bottom{
+    background-color:rgb(64, 129, 155); 
+    text-align:center;
+    margin-top: 150px;
+}
+.bottom a{
+    text-decoration: none;
+    font-size: 10px;
+    color:white;
+
+}
+.bottom p{
+    text-align: left;
+    color:white;
+    font-size:15px;
+    margin-left:150px;
+}
+.bottom h2{
+     text-align: left;
+     color:white;
+     padding-top: 2em;
+     margin-left: 150px;
+     letter-spacing: 0;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+}
