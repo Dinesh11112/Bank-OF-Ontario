@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`User_Authentication` (
   `password` VARCHAR(45) NOT NULL,
   `emailid` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ID`),
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) VISIBLE)
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC) )
 ENGINE = InnoDB;
 
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Personal_Info` (
   `DOB` VARCHAR(45) NULL,
   `address` VARCHAR(45) NULL,
   `SIN` VARCHAR(45) NULL,
-  INDEX `fk_table1_User_Authentication_idx` (`User_Authentication_ID` ASC) VISIBLE,
+  INDEX `fk_table1_User_Authentication_idx` (`User_Authentication_ID` ASC) ,
   PRIMARY KEY (`User_Authentication_ID`),
   CONSTRAINT `fk_table1_User_Authentication`
     FOREIGN KEY (`User_Authentication_ID`)
@@ -82,8 +82,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Account_Info` (
   `accountnumber` VARCHAR(45) NOT NULL,
   `accountbalance` BIGINT(10) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  INDEX `fk_Account_Info_User_Authentication1_idx` (`User_Authentication_ID` ASC) VISIBLE,
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
+  INDEX `fk_Account_Info_User_Authentication1_idx` (`User_Authentication_ID` ASC) ,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) ,
   PRIMARY KEY (`User_Authentication_ID`),
   CONSTRAINT `fk_Account_Info_User_Authentication1`
     FOREIGN KEY (`User_Authentication_ID`)
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`History` (
   `date` DATETIME NOT NULL,
   `fromemail` VARCHAR(45) NULL,
   `comments` VARCHAR(45) NULL,
-  INDEX `fk_History_User_Authentication1_idx` (`User_Authentication_ID` ASC) VISIBLE,
+  INDEX `fk_History_User_Authentication1_idx` (`User_Authentication_ID` ASC) ,
   PRIMARY KEY (`User_Authentication_ID`),
   CONSTRAINT `fk_History_User_Authentication1`
     FOREIGN KEY (`User_Authentication_ID`)
