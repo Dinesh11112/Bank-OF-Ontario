@@ -12,7 +12,7 @@
 <body>
     <?php include 'header.php';?>
     <main>
-        <img src="images/Bank%20Anywhere.png" alt="Banner" width="100%" height="auto"/><br>
+    <?php include 'headerimage.php';?>
         <div id="content">
             <img src="images/home.png">
             <h2>WELCOME</h2>
