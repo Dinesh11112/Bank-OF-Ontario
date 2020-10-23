@@ -15,22 +15,7 @@
 </head>
 
 <body>
-    <div id="top">
-        <header>
-            <img src="images/logoB.png" alt="logo" width="50" height="50"/>
-            <h1>Bank Of Ontario</h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="index.html" target="_self">Personal</a></li>
-                <li><a href="business.html">Business</a></li>
-                <li><a href="commercial.html" target="_self">Commercial</a></li>
-                <li><a href="investments.html" target="_self">Investments</a></li>
-                <li><a href="about_page.html" target="_self">ABOUT</a></li>
-                <li id="login"><a href="login.html" target="_self">LOGIN/SIGN UP</a></li>
-            </ul>
-        </nav>
-    </div>
+<?php include 'header.php';?>
     
 <main>
     <h2>ABOUT</h2>
@@ -51,20 +36,7 @@
     </div>      
 </main>
 
-<footer>
-    <p>Subscribe to get latest updates and weekly newsletter</p>
-    <input id="mail" type="text" placeholder="EMAIL ADDRESS" name="mail" required>&nbsp;&nbsp;
-    <input id="subscribe" type="submit" value="SUBSCRIBE">
-    <section class="bottom">
-      <h3>Bank Of Ontario</h3>
-       <p>At BFO, we are in business to help our clients, employees and shareholders achieve what is important to them.<br><br> Our ability to create value for all BFO stakeholders is driven by a business culture based on common values:<br><br> Trust<br> Teamwork<br> Accountability<br><br>
-            All you have to do is sign-up and start exploring!</p><br><br>
-      <a href="contact.html">Contact Us</a>
-      <a href="faq.html">FAQ</a>&nbsp;&nbsp;
-      <a href="terms.html">Terms&Conditions</a>&nbsp;&nbsp;
-      <a href="privacy.html">Privacy Policy</a>&nbsp;&nbsp;
-    </section>
-</footer>
+<?php include 'footer.php';?>
 
 </body>
     
