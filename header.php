@@ -9,10 +9,10 @@ echo "
     </header>
     <nav>
         <ul>
-            <li><a href='index.php' target='_self'>Personal</a></li>
-            <li><a href='about_page.php' target='_self'>About</a></li>
-            <li><a href='login.php' target='_self'>LogIn</a></li>
-            <li><a href='signup.html' target='_self'>SignUp</a></li>
+            <li><a href='index.php' >Personal</a></li>
+            <li><a href='about_page.php' >About</a></li>
+            <li><a href='login.php' >LogIn</a></li>
+            <li><a href='signup.php' >SignUp</a></li>
         </ul>
     </nav>
     </div>

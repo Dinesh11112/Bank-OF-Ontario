@@ -26,17 +26,17 @@
             <div class="account">
                 <img src="images/bank-account.png" alt="account" width="70" height="80"/><br><br>
                 <h2>MY ACCOUNTS</h2><br>
-                <p>MORE</p>
+                <p><a href="#">MORE</a></p>
             </div>
             <div class="product">
                 <img src="images/product.png" alt="product" width="80" height="80"/><br><br>
                 <h2>PRODUCTS</h2><br>
-                <p>MORE</p>
+                <p><a href="#">MORE</a></p>
             </div>
             <div class="solutions">
                 <img src="images/solution.png" alt="solutions" width="100" height="80"/><br><br>
                 <h2>Any Questions ?</h2><br>
-                <p>MORE</p>
+                <p><a href="faq.php">MORE</a></p>
             </div>
         </section>
     </main>
