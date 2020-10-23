@@ -9,9 +9,9 @@ echo "
     </header>
     <nav>
         <ul>
-            <li><a href='index.html' target='_self'>Personal</a></li>
-            <li><a href='about_page.html' target='_self'>About</a></li>
-            <li id='login'><a href='login.php' target='_self'>LogIn</a></li>
+            <li><a href='index.php' target='_self'>Personal</a></li>
+            <li><a href='about_page.php' target='_self'>About</a></li>
+            <li id='login'><a href='signin.php' target='_self'>LogIn</a></li>
             <li><a href='signup.html' target='_self'>SignUp</a></li>
         </ul>
     </nav>
