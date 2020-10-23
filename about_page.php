@@ -3,7 +3,7 @@
 
 <head>
 <!-- Title for the page -->
-<title> About Bank Of Ontario : One stop for Financial Goals</title>
+<title> About - Bank Of Ontario</title>
 <!--Meta information-->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
