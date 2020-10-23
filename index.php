@@ -35,7 +35,7 @@
             </div>
             <div class="solutions">
                 <img src="images/solution.png" alt="solutions" width="100" height="80"/><br><br>
-                <h2>SOLUTIONS</h2><br>
+                <h2>Any Questions ?</h2><br>
                 <p>MORE</p>
             </div>
         </section>
