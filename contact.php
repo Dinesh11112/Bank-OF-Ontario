@@ -3,7 +3,7 @@
 
 <head>
 <!-- Title for the page -->
-<title> Terms & Conditions - Bank Of Ontario</title>
+<title> Contact Us  - Bank Of Ontario</title>
 <!--Meta information-->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -18,11 +18,24 @@
 <?php include 'header.php';?>
     
 <main>
-    <h2>Terms and Conditions</h2>
+    <h2>Contact Us</h2>
     <div id="content">
-        
+
+    <p class="a"> Registered Office: </p>
+    <p class="b">
+    BOO Bank Tower,<br> Kitchener<br>Ontario,<br>Canada,<br>Tel :xxx-yyy-zzzz
+    </p><br>
+    <p class="a">Corporate office</p>
+    <p class="b">
+     Near Westmeadow drive,<br> Kitchener<br>Ontario,<br>Canada,<br>FAX: iii-ooo-pppp.
+    </p><br>
+
+         
+
+ 
+
        
-        <p class="b"> 1] 
+        <!-- <p class="b"> 1] 
         You can have up to twenty (20) Canadian or U.S. Dollar Primary Chequing, Premium .Rate Savings or Interest Chequing Accounts (for existing clients just) barring Smart Saver Accounts and Savings Builder Account under one (1) Plan. One (1) account must be assigned as the lead account. The lead account is the one you assign to pay any expenses needed by your Bank Plan, for instance, your month to month Plan charges and exchange expenses. On the off chance that you select a U.S. Dollar Account as the lead account, all Plan and exchange expenses will be charged in U.S. dollars. All records secured by the Plan are dependent upon the month to month exchange limit(s) for the chose Plan.<br> 
         The Practical Plan permits you to have one (1) Canadian or U.S. Dollar Primary Chequing Account or Interest Chequing Account (existing clients) and one (1) Premium Rate Savings Account under the Plan. All other Bank Plans permit you to have up to an aggregate of twenty (20) accounts in Canadian or U.S. Dollars, any mix of Primary Chequing Accounts, Premium Rate Savings Accounts, and Interest Chequing Accounts (existing clients just) under the Plan</p><br>
        
@@ -43,7 +56,7 @@
         </p><br>
         <p class= "b"> 7]
         Subject to the terms and states of your understanding of banking administrations. For complete subtleties of your revealing commitments and duties: individual financial clients ought to allude to the Electronic Banking Services Agreement a piece of the Agreements, Bank Plans and Fees for Everyday Banking; and business banking clients ought to allude to the BOO Debit Card for Business and Telephone Banking/Online Banking segment of the Agreement for Business Banking. The two arrangements are accessible online.
-        </p><br>
+        </p><br> -->
 
     </div>      
 </main>
