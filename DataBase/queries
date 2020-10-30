@@ -1,0 +1,2 @@
+Insert into user_authentication values (1,"dinu","1234","dinesh@gmail.com");
+Insert into user_authentication values (2,"user","1234","user@gmail.com");

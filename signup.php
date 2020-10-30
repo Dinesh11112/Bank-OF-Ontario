@@ -16,7 +16,7 @@ form {
 
 /* Full-width inputs */
 .inputblocks {
-  width: 100%;
+  width: 30%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -32,7 +32,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 30%;
 }
 
 /* Add a hover effect for buttons */
@@ -68,17 +68,17 @@ span.psw {
         <form action="action_page.php" method="post">
     <div class="container">
     <label for="email"><b>Email</b></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Email" name="email" required>
+    <input type="text" class = "inputblocks" placeholder="Enter Email" name="email" required><br>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" required>
+    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" required><br>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw-repeat" required>
+    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw-repeat" required><br>
 
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p><br>
 
-    <button type="submit">Signup</button>
+    <button type="submit">Signup</button><br>
     <button type="button">Cancel</button>
     
   </div>

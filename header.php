@@ -1,4 +1,5 @@
 <?php
+require('mysqli_connect.php');
 echo "
 <html>
 <head></head>
