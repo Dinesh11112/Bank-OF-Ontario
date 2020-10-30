@@ -16,7 +16,7 @@ form {
 
 /* Full-width inputs */
 .inputblocks {
-  width: 50%;
+  width: 30%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -32,7 +32,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 30%;
 }
 
 /* Add a hover effect for buttons */
@@ -47,7 +47,7 @@ button:hover {
   background-color:blue;
 }
 
-r
+
 
 /* Add padding to containers */
 .container {
@@ -60,46 +60,30 @@ span.psw {
   padding-top: 16px;
 }*/
 </style>
-
 <body>
     <?php include 'header.php';?>
     <main>
     <?php include 'headerimage.php';?>
         <div id="content">
-        <form action="login.php" method="post">
+        <form action="action_page.php" method="post">
     <div class="container">
-    <label for="uname"><b>Username :</b></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" required>
-<br>
-    <label for="psw"><b>Password :</b></label>
-    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" required>
+    <label for="email"><b>Email</b></label>
+    <input type="text" class = "inputblocks" placeholder="Enter Email" name="email" required><br>
 
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-    <?php
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        session_start();
-        $_SESSION["uname"] = $_POST['uname'];
-        $statement = mysqli_prepare($dbc, "Select * from user_authentication WHERE username = ? and password=?");
-            mysqli_stmt_bind_param($statement, 'ss', $_SESSION["uname"], $_POST['psw']);
-            mysqli_stmt_execute($statement);
-            mysqli_stmt_store_result($statement);
-            if(mysqli_stmt_num_rows($statement)==1){           
-                   header("Location: http://localhost/bank-of-ontario/mainaccount.php");
-            }
-            else{
-                echo "<h3>Wrong Credentials! Please try again!</h3>";
-            }
-      }
-    ?>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" required><br>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw-repeat" required><br>
+
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p><br>
+
+    <button type="submit">Signup</button><br>
+    <button type="button">Cancel</button>
+    
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
+  
 </form>
     </main>
     
