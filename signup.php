@@ -7,64 +7,9 @@
     <meta name="keywords" content="Bank, Finance, Loans, Credit"/>
     <link rel="shortcut icon" href="images/logoB.png"/>
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/signup.css"/>
     <title>Bank Of Ontario</title>
 </head>
-<style>
-form {
-  border: 3px solid #f1f1f1;
-}
-
-/* Full-width inputs */
-.inputblocks {
-  width: 40%; 
-  padding:12px 20px;
-  margin: 8px 8px;
-  display: block;
-  border: 2px solid #ccc;
-  box-sizing: border-box;
-  text-align:center;
-  
-
-  
-  
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: skyblue;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 30%;
-}
-
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
-}
-
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color:blue;
-}
-
-
-
-/* Add padding to containers */
-.container {
-  padding: 16px;
-}
-
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
-}*/
-</style>
 <body>
     <?php include 'header.php';?>
     <main>
