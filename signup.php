@@ -7,7 +7,6 @@
     <meta name="keywords" content="Bank, Finance, Loans, Credit"/>
     <link rel="shortcut icon" href="images/logoB.png"/>
     <link rel="stylesheet" href="css/main.css"/>
-    <link rel="stylesheet" href="css/signup.css"/>
     <title>Bank Of Ontario</title>
 </head>
 <body>
