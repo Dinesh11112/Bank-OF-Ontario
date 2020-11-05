@@ -51,7 +51,7 @@
     <h4>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</h4><br>
 
     <button type="submit">Signup</button><br>
-    <button type="button">Cancel</button>
+    <button type="button"><a href="index.php">Cancel</a></button>
     
   </div>
 
@@ -76,8 +76,8 @@
 
         $query = "INSERT into signup_req values(1,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
         $query_reader = mysqli_query($dbc,$query);
-
         
+        header("Location: http://localhost/bank-of-ontario/samplepage.php");
  
     }
 
