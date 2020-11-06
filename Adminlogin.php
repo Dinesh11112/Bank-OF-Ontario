@@ -61,7 +61,7 @@ span.psw {
 }*/
 </style>
 <body>
-    <?php include 'header.php';?>
+    <?php include 'userheader.php';?>
     <main>
     <?php include 'headerimage.php';?>
         <div id="content">
@@ -78,11 +78,11 @@ span.psw {
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
+    <button type="button" class="cancelbtn"><a href="index.php">Cancel</a></button>
   </div>
 </form>
     </main>
     
-    <?php include 'footer.php';?>
+    <?php include 'userfooter.php';?>
 </body>
 </html>

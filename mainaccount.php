@@ -29,6 +29,7 @@ session_start();
             <button class="w3-bar-item w3-button tablink w3-red" onclick="openTab(event,'AccountBalance')">Account Balance</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'PersonalInformation')">Personal Information</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Transactions')">Transactions</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Transfer')">Transfer</button>
         </div>
         <div id="AccountBalance" class="w3-container w3-border city">
             <h2>AccountBalance</h2>
@@ -58,6 +59,11 @@ session_start();
             <h2>Transactions</h2>
             <p></p>
         </div>
+
+<div id="Transfer" class="w3-container w3-border city" style="display:none">
+    <h2>Transfer</h2>
+    <p>You can Interac amount to your any other account</p>
+</div>
     </div>
 
 
