@@ -2,3 +2,6 @@ Insert into user_authentication values (1,"dinu","1234","dinesh@gmail.com");
 Insert into user_authentication values (2,"user","1234","user@gmail.com");
 
 insert into admin_authentication values (1,"admin","admin"); 
+
+Insert into Account_Info  values (1,"dinu",1234567890,2009$,"dineshbabusuda@gmail.com");
+Insert into Account_Info (2,"Rahul","1234567899",20010,"drahul41@gmail.com");
