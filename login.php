@@ -86,8 +86,16 @@ span.psw {
             mysqli_stmt_bind_param($statement, 'ss', $_SESSION["uname"], $_POST['psw']);
             mysqli_stmt_execute($statement);
             mysqli_stmt_store_result($statement);
-            if(mysqli_stmt_num_rows($statement)==1){           
-                   header("Location: http://localhost/bank-of-ontario/mainaccount.php");
+            if(mysqli_stmt_num_rows($statement)==1){   
+                $q = "select ID from user_authentication where username=$_SESSION[uname]" ;
+                $r = @mysqli_query($dbc, $q);
+                  if (mysqli_affected_rows($dbc) != 0) { 
+                    while($r1 = mysqli_fetch_array($r,mysqli_assoc)){
+                      echo "<script>alert('here');</script>";
+                        $_SESSION["ID"] = $r1['ID'];
+                    }
+                  }  
+                   header("Location:mainaccount.php");
             }
             else{
                 echo "<h3>Wrong Credentials! Please try again!</h3>";
