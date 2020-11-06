@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Personal_Info` (
   `DOB` VARCHAR(45) NULL,
   `address` VARCHAR(45) NULL,
   `SIN` VARCHAR(45) NULL,
+  `username` VARCHAR(45) NOT NULL,
   INDEX `fk_table1_User_Authentication_idx` (`User_Authentication_ID` ASC) ,
   PRIMARY KEY (`User_Authentication_ID`),
   CONSTRAINT `fk_table1_User_Authentication`
