@@ -16,7 +16,7 @@ form {
 
 /* Full-width inputs */
 .inputblocks {
-  width: 50%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -47,7 +47,7 @@ button:hover {
   background-color:blue;
 }
 
-r
+
 
 /* Add padding to containers */
 .container {
@@ -60,40 +60,21 @@ span.psw {
   padding-top: 16px;
 }*/
 </style>
-
 <body>
     <?php include 'header.php';?>
     <main>
     <?php include 'headerimage.php';?>
         <div id="content">
-        <form action="login.php" method="post">
+        <h2>Admin login</h2>
+        <form action="action_page.php" method="post">
     <div class="container">
-    <label for="uname"><b>Username :</b></label>
+    <label for="uname"><b>Username</b></label>
     <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" required>
-<br>
-    <label for="psw"><b>Password :</b></label>
+
+    <label for="psw"><b>Password</b></label>
     <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" required>
 
     <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-    <?php
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        session_start();
-        $_SESSION["uname"] = $_POST['uname'];
-        $statement = mysqli_prepare($dbc, "Select * from user_authentication WHERE username = ? and password=?");
-            mysqli_stmt_bind_param($statement, 'ss', $_SESSION["uname"], $_POST['psw']);
-            mysqli_stmt_execute($statement);
-            mysqli_stmt_store_result($statement);
-            if(mysqli_stmt_num_rows($statement)==1){           
-                   header("Location: http://localhost/bank-of-ontario/mainaccount.php");
-            }
-            else{
-                echo "<h3>Wrong Credentials! Please try again!</h3>";
-            }
-      }
-    ?>
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
