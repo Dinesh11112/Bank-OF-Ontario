@@ -65,6 +65,7 @@ span.psw {
     <main>
     <?php include 'headerimage.php';?>
         <div id="content">
+        <h2>Admin login</h2>
         <form action="action_page.php" method="post">
     <div class="container">
     <label for="uname"><b>Username</b></label>

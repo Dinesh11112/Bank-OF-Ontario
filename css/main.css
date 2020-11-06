@@ -45,8 +45,9 @@ main{
     padding-top: 5em;
 }
 #content h2{
+    
     padding-top: 3em;
-    color:rgb(64, 129, 155);
+    color:darkgray;
     font-family: monospace;
     margin-left: 80px;
     font-size: 30px;
@@ -54,7 +55,7 @@ main{
 }
 #content p{
     margin-left: 80px;
-    color: gray;
+    color: black;
     line-height: 1.8;
     padding-right: 45em;
 }

@@ -11,8 +11,9 @@ echo "
         <ul>
             <li><a href='index.php' target='_self'>Personal</a></li>
             <li><a href='about_page.php' target='_self'>About</a></li>
-            <li><a href='login.php' target='_self'>LogIn</a></li>
-            <li><a href='signup.html' target='_self'>SignUp</a></li>
+            <li><a href='login.php' target='_self'>User LogIn</a></li>
+            <li><a href='Adminlogin.php' target='_self'>Admin LogIn</a></li>
+            <li><a href='signup.php' target='_self'>SignUp</a></li>
         </ul>
     </nav>
     </div>
