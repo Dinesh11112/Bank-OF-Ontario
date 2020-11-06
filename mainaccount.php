@@ -63,6 +63,28 @@ session_start();
 <div id="Transfer" class="w3-container w3-border city" style="display:none">
     <h2>Transfer</h2>
     <p>You can Interac amount to your any other account</p>
+        <form action="transaction.php" method="post">
+    <div class="container">
+
+    <label for="accountnumber"><b>AccountNumber:</b>&nbsp;&nbsp;21398547892</label><br><br>
+    
+    
+    <label for="accountbalance"><b>AccountBalance:</b>&nbsp;&nbsp;21000</label><br><br>
+    
+
+    <label for="email"><b>Email</b></label>
+    <input type="email" class = "inputblocks" placeholder="Enter Email id of the recipient" name="email" required><br>
+
+    <label for="amount"><b>Amount</b></label>
+    <input type="number" class = "inputblocks" placeholder="Enter amount to send" name="amount" required><br>
+
+    <button type="submit">Send</button><br>
+    <button type="button">Cancel</button>
+    
+  </div>
+
+  
+</form>
 </div>
     </div>
 

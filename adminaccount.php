@@ -19,7 +19,7 @@ session_start();
     <title>Bank Of Ontario</title>
 </head>
 <body>
-    <?php include 'userheader.php';?>
+    <?php include 'header.php';?>
     <main>
     <?php include 'headerimage.php';?>
     <h2> Welcome to Your Page Dear <?php echo $_SESSION['uname'] ?></h2>
@@ -79,6 +79,6 @@ function openTab(evt, cityName) {
 
       </main>
     
-    <?php include 'userfooter.php';?>
+    <?php include 'footer.php';?>
 </body>
 </html>
