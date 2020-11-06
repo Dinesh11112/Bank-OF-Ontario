@@ -36,8 +36,22 @@ session_start();
         </div>
 
         <div id="PersonalInformation" class="w3-container w3-border city" style="display:none">
-            <h2>PersonalInformation</h2>
-            <p></p> 
+            <h2>Personal Information</h2>
+            <p><?php 
+                $query = 'SELECT * from personal_info where user_authentication_id = 1';
+                $r1 = mysqli_query($dbc,$query);
+                echo"<table>";
+                while($r = mysqli_fetch_array($r1)){
+                    echo "<tr><th>User Name</th><td> $r[username]</td></tr>";
+                    echo "<tr><th>First Name</th><td> $r[firstname]</td></tr>";
+                    echo "<tr><th>Last Name</th><td> $r[lastname]</td></tr>";
+                    echo "<tr><th>Phone</th><td> $r[phone]</td></tr>";
+                    echo "<tr><th>Email ID</th><td> $r[email]</td></tr>";
+                    echo "<tr><th>Date Of Birth</th><td> $r[DOB]</td></tr>";
+                    echo "<tr><th>Address</th><td> $r[address]</td></tr>";
+                    echo "<tr><th>Social Insurance Number</th><td> $r[SIN]</td></tr>";
+                }
+                echo"</table>"; ?> 
         </div>
 
         <div id="Transactions" class="w3-container w3-border city" style="display:none">
