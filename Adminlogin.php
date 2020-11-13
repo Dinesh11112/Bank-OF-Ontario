@@ -66,13 +66,13 @@ span.psw {
     <?php include 'headerimage.php';?>
         <div id="content">
         <h2>Admin login</h2>
-        <form method="post">
+        <form name = "adminlogin" onsubmit="return validateForm()" method="post">
     <div class="container">
     <label for="uname"><b>AdminName</b></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" required>
+    <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" >
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" required>
+    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" >
 
     <button type="submit">Login</button>
   </div>
@@ -107,5 +107,20 @@ span.psw {
     </main>
     
     <?php include 'footer.php';?>
+
+    <script>
+      function validateForm() {
+  var x = document.forms["adminlogin"]["uname"].value;
+  if (x == "") {
+    alert("UserName must be filled out");
+    return false;
+  }
+  var y = document.forms["adminlogin"]["psw"].value;
+  if (y == "") {
+    alert("Password must be filled out");
+    return false;
+  }
+}
+    </script>
 </body>
 </html>
