@@ -22,13 +22,14 @@ session_start();
     <?php include 'userheader.php';?>
     <main>
     <?php include 'headerimage.php';?>
-    <h2> Welcome to Your Page Dear <?php echo $_SESSION['uname'] ?></h2>
+    <h2> Welcome Admin</h2>
     
     <div class="w3-container">
         <div class="w3-bar w3-white">
             <button class="w3-bar-item w3-button tablink w3-red" onclick="openTab(event,'AccountBalance')">Account Balance</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'PersonalInformation')">Personal Information</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Transactions')">Transactions</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Signup')">Signup Requests</button>
         </div>
         <div id="AccountBalance" class="w3-container w3-border city">
             <h2>AccountBalance</h2>
@@ -51,17 +52,32 @@ session_start();
                     echo "<tr><th>Address</th><td> $r[address]</td></tr>";
                     echo "<tr><th>Social Insurance Number</th><td> $r[SIN]</td></tr>";
                 }
-                echo"</table>"; ?> 
+                echo"</table>"; ?></p> 
         </div>
 
         <div id="Transactions" class="w3-container w3-border city" style="display:none">
             <h2>Transactions</h2>
             <p></p>
         </div>
+        <div id="Signup" class="w3-container w3-border city" style="display:none">
+            <h2>Signup Requests</h2>
+            <p><?php 
+                $query = 'SELECT * from signup_req';
+                $r1 = mysqli_query($dbc,$query);
+                echo"<table>";
+                echo "<tr><th>User Name</th><th>First Name</th><th>Last Name</th><th>Phone</th><th>Email ID</th><th>Date Of Birth</th><th>Address</th><th>SIN</th>";
+                while($r = mysqli_fetch_array($r1)){
+                    echo "<tr><td>$r[username]</td><td>$r[firstname]</td><td>$r[lastname]</td><td>$r[phone]</td><td>$r[emailid]</td><td>$r[DOB]</td><td>$r[address]</td><td>$r[SIN]</td>";
+                }
+                echo"</table>"; 
+                echo "<button onclick = test()>hello</button>";
+                echo "<div id='test'>hellooooooo</div>";?></p>
+        </div>
+
     </div>
 
 
-<script>
+<script>    
 function openTab(evt, cityName) {
   var i, x, tablinks;
   x = document.getElementsByClassName("city");
@@ -74,6 +90,10 @@ function openTab(evt, cityName) {
   }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " w3-red";
+}
+function test(){
+    var t = document.getElementById('test');
+    t.style.display = "none";
 }
 </script> 
 

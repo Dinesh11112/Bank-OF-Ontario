@@ -1,4 +1,13 @@
 Insert into user_authentication values (1,"dinu","1234","dinesh@gmail.com");
-Insert into user_authentication values (2,"user","1234","user@gmail.com");
+Insert into user_authentication values (2,"rahul","1234","rahul@gmail.com");
 
 insert into admin_authentication values (1,"admin","admin"); 
+
+
+--personal info
+insert into personal_info values(1,"Dinesh","Suda","babu","5488831551","dineshboby07@gmail.com","1996/06/20","81 westmeadow dr","123456","DineshBoby");
+insert into personal_info values(2,"Rahul","Dh","","9876543","rahul@gmail.com","1998/06/20","81 dr","123456","rahul");
+
+
+--accountinfo
+insert into account_info values(2,"Rahul","987654321",3000,"rahul@gmail.com");

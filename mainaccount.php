@@ -33,16 +33,20 @@ session_start();
         </div>
         <div id="AccountBalance" class="w3-container w3-border city">
             <h2>AccountBalance</h2>
+            <?php echo "id : ".$_SESSION['ID']; ?>
             <p></p>
         </div>
 
         <div id="PersonalInformation" class="w3-container w3-border city" style="display:none">
             <h2>Personal Information</h2>
             <p><?php 
-                $query = 'SELECT * from personal_info where user_authentication_id = 1';
-                $r1 = mysqli_query($dbc,$query);
+            $ID = $_SESSION["ID"];
+                $query = "SELECT * from personal_info where user_authentication_id = '$ID'";
+                
+                $result = $dbc->query($query);
+                if ($result->num_rows > 0) {
                 echo"<table>";
-                while($r = mysqli_fetch_array($r1)){
+                while($r = $result->fetch_assoc()){
                     echo "<tr><th>User Name</th><td> $r[username]</td></tr>";
                     echo "<tr><th>First Name</th><td> $r[firstname]</td></tr>";
                     echo "<tr><th>Last Name</th><td> $r[lastname]</td></tr>";
@@ -52,7 +56,7 @@ session_start();
                     echo "<tr><th>Address</th><td> $r[address]</td></tr>";
                     echo "<tr><th>Social Insurance Number</th><td> $r[SIN]</td></tr>";
                 }
-                echo"</table>"; ?> 
+                echo"</table>"; }?> 
         </div>
 
         <div id="Transactions" class="w3-container w3-border city" style="display:none">
@@ -63,6 +67,32 @@ session_start();
 <div id="Transfer" class="w3-container w3-border city" style="display:none">
     <h2>Transfer</h2>
     <p>You can Interac amount to your any other account</p>
+    <form method="post">
+        <div class="container">
+        <?php 
+        $fetchinfo = $dbc->query("select * from account_info where User_Authentication_ID = '$ID'");
+        while($info = $fetchinfo->fetch_assoc()){
+            echo '<label for="accountnumber"><b>AccountNumber:</b>&nbsp;&nbsp;'.$info['accountnumber'].'</label><br><br>   
+            <label for="accountbalance"><b>AccountBalance:</b>&nbsp;&nbsp;'.$info['accountbalance'].'</label><br><br>';}?>
+            <label for="email"><b>Send To :</b></label>
+            <?php 
+            $result = $dbc->query("select email from personal_info"); 
+            echo '<select name="email">';
+            while ($row = $result->fetch_assoc()) {
+            echo '<option value="'.$row['email'].'">'.$row['email'].'</option>';
+            }
+            echo '</select>'
+            ?><br><br>
+            <label for="amount"><b>Amount</b></label>
+            <input type="number" class = "inputblocks" placeholder="Enter amount to send" name="amount"><br>
+            <button type="submit">Send</button><br>
+            <button type="button">Cancel</button>
+        </div>  
+    </form>
+
+
+
+
 </div>
     </div>
 
