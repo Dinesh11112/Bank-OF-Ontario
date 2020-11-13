@@ -86,10 +86,12 @@
        // require('mysqli_connect.php');
         session_start();
 
-        $result = $dbc->query('select * from signup_req');
-        $rowcount = $result->num_rows;
-        $rowcount++;
-        $query = "INSERT into signup_req values($rowcount,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
+          $lastrowid = $dbc->query('SELECT ID FROM signup_req ORDER BY ID DESC LIMIT 1');
+          while($row = $lastrowid->fetch_assoc()){
+            $lastid = $row['ID'];
+          }
+          $lastid++;
+        $query = "INSERT into signup_req values($lastid,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
         $query_reader = mysqli_query($dbc,$query);
         header("Location: http://localhost/bank-of-ontario/index.php");
  
