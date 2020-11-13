@@ -17,6 +17,5 @@ echo "
             <li><a href='signup.php'>SignUp</a></li>
         </ul>
     </nav>
-    </div>
-"
+    </div>"
 ?>

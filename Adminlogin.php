@@ -61,14 +61,14 @@ span.psw {
 }*/
 </style>
 <body>
-    <?php include 'userheader.php';?>
+    <?php include 'header.php';?>
     <main>
     <?php include 'headerimage.php';?>
         <div id="content">
         <h2>Admin login</h2>
-        <form action="action_page.php" method="post">
+        <form method="post">
     <div class="container">
-    <label for="uname"><b>Username</b></label>
+    <label for="uname"><b>AdminName</b></label>
     <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" required>
 
     <label for="psw"><b>Password</b></label>
@@ -81,8 +81,31 @@ span.psw {
     <button type="button" class="cancelbtn"><a href="index.php">Cancel</a></button>
   </div>
 </form>
+<?php
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        session_start();
+        $_SESSION["uname"] = $_POST['uname'];
+        $statement = mysqli_prepare($dbc, "Select * from admin_authentication WHERE username = ? and password=?");
+            mysqli_stmt_bind_param($statement, 'ss', $_SESSION["uname"], $_POST['psw']);
+            mysqli_stmt_execute($statement);
+            mysqli_stmt_store_result($statement);
+            if(mysqli_stmt_num_rows($statement)==1){   
+              $q = "select * from admin_authentication" ;
+              $result = $dbc->query($q);
+              if ($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                    $_SESSION["ID"] = $r1['AdminID'];
+                  }
+                  header("Location:adminaccount.php");
+              } else {
+                  echo "Wrong Credentials";
+              }
+              }
+        }
+    ?>
+
     </main>
     
-    <?php include 'userfooter.php';?>
+    <?php include 'footer.php';?>
 </body>
 </html>

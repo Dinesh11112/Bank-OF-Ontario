@@ -79,6 +79,28 @@ span.psw {
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
     <?php
+       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        session_start();
+        $_SESSION["uname"] = $_POST['uname'];
+        $statement = mysqli_prepare($dbc, "Select * from user_authentication WHERE username = ? and password=?");
+            mysqli_stmt_bind_param($statement, 'ss', $_SESSION["uname"], $_POST['psw']);
+            mysqli_stmt_execute($statement);
+            mysqli_stmt_store_result($statement);
+            if(mysqli_stmt_num_rows($statement)==1){   
+              $ID = $_SESSION['uname'];
+              $q = "select * from user_authentication where username = '$ID'";
+              $result = $dbc->query($q);
+              if ($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                    $_SESSION["ID"] = $row["ID"];
+                  }
+                  header("Location:mainaccount.php");
+
+              } else {
+                  echo "Wrong Credentials";
+              }
+              }
+        }/*
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
         $_SESSION["uname"] = $_POST['uname'];
@@ -95,12 +117,11 @@ span.psw {
                         $_SESSION["ID"] = $r1['ID'];
                     }
                   }  
-                   header("Location:mainaccount.php");
             }
             else{
                 echo "<h3>Wrong Credentials! Please try again!</h3>";
             }
-      }
+      }*/
     ?>
   </div>
 

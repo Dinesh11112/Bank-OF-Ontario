@@ -17,7 +17,6 @@
         <center>
         <form action="#" method="post">
     <div class="container">
-
     <label for="firstname"><b>Firstname</b></label>
     <input type="text" class = "inputblocks" placeholder="Enter Firstname" name="firstname" ><br>
 
@@ -61,7 +60,7 @@
     </main>
     <?php 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-
+ 
         $fname = mysqli_real_escape_string($dbc,strip_tags($_POST['firstname']));
         $lname = mysqli_real_escape_string($dbc,strip_tags($_POST['lastname']));
         $username = mysqli_real_escape_string($dbc,strip_tags($_POST['username']));
@@ -87,10 +86,12 @@
        // require('mysqli_connect.php');
         session_start();
 
-        $query = "INSERT into signup_req values(1,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
+        $result = $dbc->query('select * from signup_req');
+        $rowcount = $result->num_rows;
+        $rowcount++;
+        $query = "INSERT into signup_req values($rowcount,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
         $query_reader = mysqli_query($dbc,$query);
-        
-        header("Location: http://localhost/bank-of-ontario/samplepage.php");
+        header("Location: http://localhost/bank-of-ontario/index.php");
  
     }
 
