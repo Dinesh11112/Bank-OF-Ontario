@@ -15,7 +15,7 @@
     <?php include 'headerimage.php';?>
         <div id="content">
         <center>
-        <form action="#" method="post">
+        <form action="#" name = "signup" onsubmit="return validateForm()" method="post">
     <div class="container">
     <label for="firstname"><b>Firstname</b></label>
     <input type="text" class = "inputblocks" placeholder="Enter Firstname" name="firstname" ><br>
@@ -97,5 +97,76 @@
 
 ?>
     <?php include 'footer.php';?>
+
+    <script>
+    function validateForm() {
+  var Firstname = document.forms["signup"]["firstname"].value;
+  if (Firstname == "") {
+    alert("Firstname must be filled out");
+    return false;
+  }
+  var Lastname = document.forms["signup"]["lastname"].value;
+  if (Lastname == "") {
+    alert("Lastname must be filled out");
+    return false;
+  }
+  var Dateofbirth = document.forms["signup"]["dateofbirth"].value;
+  if (Dateofbirth == "") {
+    alert("Dateofbirth must be filled out");
+    return false;
+  }
+  var Sin = document.forms["signup"]["sin"].value;
+  if (Sin == "") {
+    alert("Sin must be filled out");
+    return false;
+  }
+  var Phone  = document.forms["signup"]["phone"].value;
+  if (Phone  == "") {
+    alert("Phone must be filled out");
+    return false;
+  }
+  var Address = document.forms["signup"]["address"].value;
+  if (Address == "") {
+    alert("Address must be filled out");
+    return false;
+  }
+  var Username = document.forms["signup"]["username"].value;
+  if (Username == "") {
+    alert("Username must be filled out");
+    return false;
+  }
+  var Email = document.forms["signup"]["email"].value;
+  if (Email == "") {
+    alert("Email must be filled out");
+    return false;
+  }
+  var emailID = document.signup.email.value;
+         atpos = emailID.indexOf("@");
+         dotpos = emailID.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) {
+            alert("Please enter correct email ID")
+            document.signup.email.focus() ;
+            return false;
+         }
+         return( true );
+
+  var Password = document.forms["signup"]["psw"].value;
+  if (Password == "") {
+    alert("Password must be filled out");
+    return false;
+  }
+  else if(Password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;
+
+  var Confirm  = document.forms["signup"]["psw-repeat"].value;
+  if (Confirm  == "") {
+    alert("Confirm Password must be filled out");
+    return false;
+  }
+  
+}
+    </script>
 </body>
 </html>
