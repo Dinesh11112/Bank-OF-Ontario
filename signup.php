@@ -93,6 +93,8 @@
           $lastid++;
         $query = "INSERT into signup_req values($lastid,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
         $query_reader = mysqli_query($dbc,$query);
+//        $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+
         header("Location: http://localhost/bank-of-ontario/index.php");
  
     }
