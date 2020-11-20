@@ -112,7 +112,7 @@ span.psw {
       function validateForm() {
   var x = document.forms["adminlogin"]["uname"].value;
   if (x == "") {
-    alert("UserName must be filled out");
+    alert("AdminName must be filled out");
     return false;
   }
   var y = document.forms["adminlogin"]["psw"].value;

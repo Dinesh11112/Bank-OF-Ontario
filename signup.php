@@ -30,7 +30,7 @@
     <input type="number" class = "inputblocks" placeholder="Enter your Sin " name="sin" ><br>
 
     <label for="phone"><b>Phone</b></label>
-    <input type="tel" class = "inputblocks" placeholder="Enter Phone" name="phone" ><br>
+    <input type="tel" class = "inputblocks" placeholder="xxx-xxx-xxxx" name="phone" pattern = "[0-9] {3} - [0-9] {3} - [0-9] {4}" ><br>
 
     <label for="address"><b>Address</b></label>
     <input type="text" class = "inputblocks" placeholder="Enter Address" name="address" ><br>
@@ -41,11 +41,16 @@
     <label for="email"><b>Email</b></label>
     <input type="text" class = "inputblocks" placeholder="Enter Email" name="email" ><br>
 
+    <div id="password_div">
     <label for="psw"><b>Password</b></label>
     <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" ><br>
+    </div>
 
+    <div id="pass_confirm_div">
     <label for="psw-repeat"><b>Confirm Password</b></label>
     <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw-repeat" ><br>
+    <div id="password_error"></div>
+    </div>
 
     <h4>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</h4><br>
 
@@ -140,33 +145,18 @@
     alert("Email must be filled out");
     return false;
   }
-  var emailID = document.signup.email.value;
-         atpos = emailID.indexOf("@");
-         dotpos = emailID.lastIndexOf(".");
-         
-         if (atpos < 1 || ( dotpos - atpos < 2 )) {
-            alert("Please enter correct email ID")
-            document.signup.email.focus() ;
-            return false;
-         }
-         return( true );
-
   var Password = document.forms["signup"]["psw"].value;
   if (Password == "") {
     alert("Password must be filled out");
     return false;
   }
-  else if(Password.length<6){  
-  alert("Password must be at least 6 characters long.");  
-  return false;
-
   var Confirm  = document.forms["signup"]["psw-repeat"].value;
   if (Confirm  == "") {
     alert("Confirm Password must be filled out");
     return false;
   }
-  
 }
+ 
     </script>
 </body>
 </html>
