@@ -111,6 +111,9 @@ session_start();
                         while($info = $getbankbalance->fetch_assoc()){
                             $balance = $info['accountbalance'] + $_POST['amount'];
                         }
+                        $bankbalance-=$_POST['amount'];
+                        $query_reader = mysqli_query($dbc,"UPDATE account_info SET accountbalance ='$balance' WHERE email = '$_POST[email]'");
+                        $query_reader = mysqli_query($dbc,"UPDATE account_info SET accountbalance ='$bankbalance' WHERE email = '$email'");
                     }
                       //echo "<Script> alert('here : ".$_POST['email']."');</script>";
                 }
@@ -122,6 +125,12 @@ session_start();
 <div id="Edit" class="w3-container w3-border city" style="display:none">
             <h2>Edit Details</h2>
             <p></p>
+
+            <?php 
+                //$query = "INSERT into signup_req values($lastid,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
+                //$query_reader = mysqli_query($dbc,$query);
+                //$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+?>
         </div>
     </div>
 
