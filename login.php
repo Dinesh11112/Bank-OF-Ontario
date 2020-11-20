@@ -10,9 +10,7 @@
     <title>Bank Of Ontario</title>
 </head>
 <style>
-form {
-  border: 3px solid #f1f1f1;
-}
+
 
 /* Full-width inputs */
 .inputblocks {
@@ -125,7 +123,7 @@ span.psw {
     ?>
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
+  <div class="container" >
     <button type="button" class="cancelbtn">Cancel</button>
   </div>
 </form>
