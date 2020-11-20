@@ -14,7 +14,7 @@
 
 /* Full-width inputs */
 .inputblocks {
-  width: 50%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -65,15 +65,19 @@ span.psw {
     <?php include 'headerimage.php';?>
         <div id="content">
         <form action="login.php" name = "signin" onsubmit="return validateForm()" method="post">
+    <div class="content">
+    <h2>User Login</h2>
+    <form name="userlogin" method="post">
     <div class="container">
-    <label for="uname"><b>Username :</b></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" >
-<br>
-    <label for="psw"><b>Password :</b></label>
+      <label for="uname"><b>Username :</b></label>
+      <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" >
+      <label for="psw"><b>Password :</b></label>
     <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" >
 
-    <button type="submit">Login</button>
-    
+    <button type="submit">Login</button><br><br>
+    <button type="button">Cancel</button>
+    </div>
+    </form></div>
     <?php
        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
@@ -119,10 +123,6 @@ span.psw {
             }
       }*/
     ?>
-  </div>
-
-  <div class="container" >
-    <button type="button" class="cancelbtn">Cancel</button>
   </div>
 </form>
     </main>
