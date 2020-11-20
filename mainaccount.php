@@ -147,6 +147,29 @@ session_start();
             <p></p>
 
             <?php 
+            $query = "SELECT * from personal_info where user_authentication_id = '$ID'";
+                
+            $result = $dbc->query($query);
+            if ($result->num_rows > 0) {
+                echo"<form method='POST' name='editform' onsubmit= 'return validate()'><table class='table table-striped'>";
+            while($r = $result->fetch_assoc()){
+                echo "<tr><th>User Name</th><td><input type='text' value=". $r['username']." name='username'></td></tr>";
+                echo "<tr><th>First Name</th><td><input type='text' name='firstname' value=". $r['firstname']."></td></tr>";
+                echo "<tr><th>Last Name</th><td><input type='text' name='lastname' value=". $r['lastname']."></td></tr>";
+                echo "<tr><th>Phone</th><td> <input type='number' name='phone' value=".$r['phone']."></td></tr>";
+                echo "<tr><th>Email ID</th><td><input type='email' name='email' value =".$r['email']."></td></tr>";
+                echo "<tr><th>Date Of Birth</th><td><input type='text' name='DOB' value=".$r['DOB']."></td></tr>";
+                echo "<tr><th>Address</th><td><input type='text' name='address' value=".$r['address']."></td></tr>";
+                echo "<tr><th>Social Insurance Number</th><td><input type='number' name='SIN' value=".$r['SIN']."></td></tr>";
+            }
+            echo "<tr><td><button type='submit'>Submit</button></td><td><button>Cancel</button></td></tr>";
+            echo"</table></form>"; }
+
+
+            echo "<script> function validate(){";
+
+
+            echo "}</script>";
                 //$query = "INSERT into signup_req values($lastid,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
                 //$query_reader = mysqli_query($dbc,$query);
                 //$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
