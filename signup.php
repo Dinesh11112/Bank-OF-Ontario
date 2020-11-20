@@ -15,22 +15,22 @@
     <?php include 'headerimage.php';?>
         <div id="content">
         <center>
-        <form action="#" name = "signup" onsubmit="return validateForm()" method="post">
+        <form name = "signup" onsubmit="return validateForm()" method="POST">
     <div class="container">
     <label for="firstname"><b>Firstname</b></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Firstname" name="firstname" ><br>
+    <input type="text" class = "inputblocks" placeholder="Enter Firstname" name="firstname" pattern="[a-zA-Z][a-zA-Z ]{2,}"><br>
 
     <label for="lastname"><b>Lastname</b></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Lastname" name="lastname" ><br>
+    <input type="text" class = "inputblocks" placeholder="Enter Lastname" name="lastname" pattern="[a-zA-Z][a-zA-Z ]{2,}"><br>
 
     <label for="dateofbirth"><b>Dateofbirth</b></label>
     <input type="date" class = "inputblocks" placeholder="Enter Dateofbirth" name="dateofbirth" ><br>
 
     <label for="sin"><b>Sin</b></label>
-    <input type="number" class = "inputblocks" placeholder="Enter your Sin " name="sin" ><br>
+    <input type="number" class = "inputblocks" placeholder="Enter your Sin " name="sin"  ><br>
 
     <label for="phone"><b>Phone</b></label>
-    <input type="tel" class = "inputblocks" placeholder="xxx-xxx-xxxx" name="phone" pattern = "[0-9] {3} - [0-9] {3} - [0-9] {4}" ><br>
+    <input type="number" class = "inputblocks" placeholder="xxx-xxx-xxxx" name="phone" ><br>
 
     <label for="address"><b>Address</b></label>
     <input type="text" class = "inputblocks" placeholder="Enter Address" name="address" ><br>
@@ -39,7 +39,7 @@
     <input type="text" class = "inputblocks" placeholder="Enter Username" name="username" ><br>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Email" name="email" ><br>
+    <input type="email" class = "inputblocks" placeholder="Enter Email" name="email" ><br>
 
     <div id="password_div">
     <label for="psw"><b>Password</b></label>
@@ -70,7 +70,7 @@
         $lname = mysqli_real_escape_string($dbc,strip_tags($_POST['lastname']));
         $username = mysqli_real_escape_string($dbc,strip_tags($_POST['username']));
         $email = mysqli_real_escape_string($dbc,strip_tags($_POST['email']));
-        /* if(($_SERVER['REQUEST_METHOD']=="POST")){
+         /*if(($_SERVER['REQUEST_METHOD']=="POST")){
 
         $pattern = "^[a-zA-Z0-9_]*@[a-zA-Z]*.[a-zA-Z]{2,4}";
         $mail = $_POST['mail'];
@@ -82,7 +82,7 @@
         } else {
             echo "You entered valid email.";
         }
-    }*/
+    }*/ 
         $password = mysqli_real_escape_string($dbc,strip_tags($_POST['psw']));
         $dob = mysqli_real_escape_string($dbc,strip_tags($_POST['dateofbirth']));
         $phone = mysqli_real_escape_string($dbc,strip_tags($_POST['phone']));
@@ -105,46 +105,88 @@
 
     <script>
     function validateForm() {
-  var Firstname = document.forms["signup"]["firstname"].value;
-  if (Firstname == "") {
-    alert("Firstname must be filled out");
-    return false;
-  }
-  var Lastname = document.forms["signup"]["lastname"].value;
-  if (Lastname == "") {
-    alert("Lastname must be filled out");
-    return false;
-  }
-  var Dateofbirth = document.forms["signup"]["dateofbirth"].value;
-  if (Dateofbirth == "") {
-    alert("Dateofbirth must be filled out");
-    return false;
-  }
+      var Firstname = document.forms["signup"]["firstname"].value;
+      if (Firstname == "") {
+        alert("Firstname must be filled out");
+        return false;
+      }
+      var Lastname = document.forms["signup"]["lastname"].value;
+      if (Lastname == "") {
+        alert("Lastname must be filled out");
+        return false;
+      }
+      var Dateofbirth = document.forms["signup"]["dateofbirth"].value;
+      if (Dateofbirth == ""){
+        alert("Dateofbirth must be filled out");
+        return false;
+      }
+    else{
+      var today = new Date();
+      var nowyear = today.getFullYear();
+      var nowmonth = today.getMonth();
+      var nowday = today.getDate();
+
+      var Dateofbirth = new Date(Dateofbirth);
+
+      var birthyear = Dateofbirth.getFullYear();
+      var birthmonth = Dateofbirth.getMonth();
+      var birthday = Dateofbirth.getDate();
+
+      var age = nowyear - birthyear;
+
+      var age_month = nowmonth - birthmonth;
+      var age_day = nowday - birthday;
+
+
+      if (age > 100) {
+            alert("Age cannot be more than 100 Years.Please enter correct age")
+            return false;
+        }
+        if (age_month < 0 || (age_month == 0 && age_day < 0)) {
+            age = parseInt(age) - 1;
+
+        }
+        if ((age == 18 && age_month <= 0 && age_day <= 0) || age < 18) {
+            alert("Age should be more than 18 years.Please enter a valid Date of Birth");
+            return false;
+        }
+      
+    }
   var Sin = document.forms["signup"]["sin"].value;
   if (Sin == "") {
     alert("Sin must be filled out");
     return false;
+  }
+  else{
+    if(!(Sin > 99999999 && Sin < 1000000000) ){
+      alert("please check your sin number");
+      return false;
+    }
   }
   var Phone  = document.forms["signup"]["phone"].value;
   if (Phone  == "") {
     alert("Phone must be filled out");
     return false;
   }
-  var Address = document.forms["signup"]["address"].value;
-  if (Address == "") {
-    alert("Address must be filled out");
-    return false;
+  else{
+    if(Phone.length != 10){
+      alert("Phone number should be 10 digits");
+      return false;
+    }
   }
+  
   var Username = document.forms["signup"]["username"].value;
   if (Username == "") {
     alert("Username must be filled out");
     return false;
   }
+
   var Email = document.forms["signup"]["email"].value;
   if (Email == "") {
     alert("Email must be filled out");
     return false;
   }
+
   var Password = document.forms["signup"]["psw"].value;
   if (Password == "") {
     alert("Password must be filled out");
@@ -153,6 +195,10 @@
   var Confirm  = document.forms["signup"]["psw-repeat"].value;
   if (Confirm  == "") {
     alert("Confirm Password must be filled out");
+    return false;
+  }
+  if(Password != Confirm){
+    alert("Reenter password is not matching with the password");
     return false;
   }
 }
