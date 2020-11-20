@@ -64,18 +64,16 @@ span.psw {
     <main>
     <?php include 'headerimage.php';?>
         <div id="content">
-        <form action="login.php" method="post">
+        <form action="login.php" name = "signin" onsubmit="return validateForm()" method="post">
     <div class="container">
     <label for="uname"><b>Username :</b></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" required>
+    <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" >
 <br>
     <label for="psw"><b>Password :</b></label>
-    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" required>
+    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" >
 
     <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+    
     <?php
        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
@@ -130,5 +128,22 @@ span.psw {
     </main>
     
     <?php include 'footer.php';?>
+
+    <script>
+
+  function validateForm() {
+  var x = document.forms["signin"]["uname"].value;
+  if (x == "") {
+    alert("UserName must be filled out");
+    return false;
+  }
+  var y = document.forms["signin"]["psw"].value;
+  if (y == "") {
+    alert("Password must be filled out");
+    return false;
+  }
+}
+
+    </script>
 </body>
 </html>
