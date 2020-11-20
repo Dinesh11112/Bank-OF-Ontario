@@ -22,7 +22,7 @@ session_start();
     <?php include 'userheader.php';?>
     <main>
     <?php include 'headerimage.php';?>
-    <h2> Welcome to Your Page Dear <?php echo $_SESSION['uname'] ?></h2>
+    <h2> Welcome  <?php echo $_SESSION['uname'] ?></h2>
     
     <div class="w3-container">
         <div class="w3-bar w3-white">
@@ -33,9 +33,33 @@ session_start();
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Edit')">Edit Details</button>
 
         </div>
-        <div id="AccountBalance" class="w3-container w3-border city" >
-            <h2>AccountBalance</h2>
-            <?php echo "id : ".$_SESSION['ID']; ?>
+
+        <div id="AccountBalance" class="w3-container w3-border city">
+            <h2>Account Balance</h2>
+            <p> <?php
+                $ID = $_SESSION["ID"];
+                $query2 = "SELECT * from personal_info where user_authentication_id = '$ID'"; 
+                $result2 = $dbc->query($query2);
+                if ($result2->num_rows > 0) {
+                    echo"<table class='table table-striped'>";
+                    while($rs = $result2->fetch_assoc()){
+                        echo"<tr><th> Instituition number </th><td> 101";
+                        echo"<tr><th> Transit number </th><td> 052";
+                        echo "<tr><th>First Name</th><td> $rs[firstname]</td></tr>";
+                       
+                    }
+                    $fetchinfo1 = $dbc->query("select * from account_info where User_Authentication_ID = '$ID'");
+
+                    while($rs = $fetchinfo1->fetch_assoc()){
+                        echo "<tr><th>Account Number</th><td> $rs[accountnumber]</td></tr>";
+                        echo "<tr><th>Account Balance</th><td> $rs[accountbalance]</td></tr>";
+
+                       
+                    }
+
+
+                    echo"</table>"; }?> 
+
             <p></p>
         </div>
 
@@ -47,7 +71,7 @@ session_start();
                 
                 $result = $dbc->query($query);
                 if ($result->num_rows > 0) {
-                echo"<table>";
+                    echo"<table class='table table-striped'>";
                 while($r = $result->fetch_assoc()){
                     echo "<tr><th>User Name</th><td> $r[username]</td></tr>";
                     echo "<tr><th>First Name</th><td> $r[firstname]</td></tr>";
@@ -71,7 +95,15 @@ session_start();
     <p>You can Interac amount to your any other account</p>
     <form method="post">
         <div class="container">
-       
+
+        <?php 
+        $fetchinfo = $dbc->query("select * from account_info where User_Authentication_ID = '$ID'");
+        echo"<table class='table table-striped'>";
+
+        while($info = $fetchinfo->fetch_assoc()){
+            echo '<label for="accountnumber"><b>AccountNumber:</b>&nbsp;&nbsp;'.$info['accountnumber'].'</label><br><br>   
+            <label for="accountbalance"><b>AccountBalance:</b>&nbsp;&nbsp;'.$info['accountbalance'].'</label><br><br>';}?>
+            <label for="email"><b>Send To :</b></label>
             <?php 
             $fetchinfo = $dbc->query("select * from account_info where User_Authentication_ID = '$ID'");
             while($info = $fetchinfo->fetch_assoc()){
