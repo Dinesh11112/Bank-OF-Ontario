@@ -22,7 +22,7 @@ session_start();
     <?php include 'userheader.php';?>
     <main>
     <?php include 'headerimage.php';?>
-    <h2> Welcome to Your Page Dear <?php echo $_SESSION['uname'] ?></h2>
+    <h2> Welcome  <?php echo $_SESSION['uname'] ?></h2>
     
     <div class="w3-container">
         <div class="w3-bar w3-white">
@@ -30,22 +30,45 @@ session_start();
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'PersonalInformation')">Personal Information</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Transactions')">Transactions</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Transfer')">Transfer</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Edit')">Edit Details</button>
+
         </div>
+
         <div id="AccountBalance" class="w3-container w3-border city">
-            <h2>AccountBalance</h2>
-            <?php echo "id : ".$_SESSION['ID']; ?>
-            <p></p>
+            <h2>Account Balance</h2>
+            <p> <?php
+                $ID = $_SESSION["ID"];
+                $query2 = "SELECT * from personal_info where user_authentication_id = '$ID'"; 
+                $result2 = $dbc->query($query2);
+                if ($result2->num_rows > 0) {
+                    echo"<table class='table table-striped'>";
+                    while($rs = $result2->fetch_assoc()){
+                        echo"<tr><th> Instituition number </th><td> 101</td>";
+                        echo"<tr><th> Transit number </th><td> 052</td>";
+                        echo "<tr><th>First Name</th><td> $rs[firstname]</td></tr>";
+                       
+                    }
+                    $fetchinfo1 = $dbc->query("select * from account_info where User_Authentication_ID = '$ID'");
+
+                    while($rs = $fetchinfo1->fetch_assoc()){
+                        echo "<tr><th>Account Number</th><td> $rs[accountnumber]</td></tr>";
+                        echo "<tr><th>Account Balance</th><td> $rs[accountbalance]</td></tr>";
+                    }
+                    echo"</table>"; 
+                    }
+                    ?> 
+            </p>
         </div>
 
         <div id="PersonalInformation" class="w3-container w3-border city" style="display:none">
             <h2>Personal Information</h2>
-            <p><?php 
+            <?php 
             $ID = $_SESSION["ID"];
                 $query = "SELECT * from personal_info where user_authentication_id = '$ID'";
                 
                 $result = $dbc->query($query);
                 if ($result->num_rows > 0) {
-                echo"<table>";
+                    echo"<table class='table table-striped'>";
                 while($r = $result->fetch_assoc()){
                     echo "<tr><th>User Name</th><td> $r[username]</td></tr>";
                     echo "<tr><th>First Name</th><td> $r[firstname]</td></tr>";
@@ -69,31 +92,66 @@ session_start();
     <p>You can Interac amount to your any other account</p>
     <form method="post">
         <div class="container">
-        <?php 
-        $fetchinfo = $dbc->query("select * from account_info where User_Authentication_ID = '$ID'");
-        while($info = $fetchinfo->fetch_assoc()){
-            echo '<label for="accountnumber"><b>AccountNumber:</b>&nbsp;&nbsp;'.$info['accountnumber'].'</label><br><br>   
-            <label for="accountbalance"><b>AccountBalance:</b>&nbsp;&nbsp;'.$info['accountbalance'].'</label><br><br>';}?>
-            <label for="email"><b>Send To :</b></label>
             <?php 
+            $fetchinfo = $dbc->query("select * from account_info where User_Authentication_ID = '$ID'");
+            while($info = $fetchinfo->fetch_assoc()){
+                $email = $info['email'];
+                $bankbalance = $info['accountbalance'];
+                echo '<label for="accountnumber"><b>AccountNumber:</b>&nbsp;&nbsp;'.$info['accountnumber'].'</label><br><br>   
+                <label for="accountbalance"><b>AccountBalance:</b>&nbsp;&nbsp;'.$bankbalance.'</label><br><br>';
+               
+            }
+
+                echo "<label for='email'><b>Send To :</b></label>";
+
             $result = $dbc->query("select email from personal_info"); 
             echo '<select name="email">';
             while ($row = $result->fetch_assoc()) {
-            echo '<option value="'.$row['email'].'">'.$row['email'].'</option>';
+                if($email != $row['email'])
+                    echo '<option name="mail" value="'.$row['email'].'">'.$row['email'].'</option>';
             }
             echo '</select>'
             ?><br><br>
-            <label for="amount"><b>Amount</b></label>
+            <label for="amount" name="amount"><b>Amount</b></label>
             <input type="number" class = "inputblocks" placeholder="Enter amount to send" name="amount"><br>
-            <button type="submit">Send</button><br>
+            <button type="submit" name="transferform">Send</button><br>
             <button type="button">Cancel</button>
         </div>  
     </form>
-
+            <?php 
+                if(isset($_POST['transferform'])){
+                    if($_POST['amount'] > $bankbalance){
+                        echo "<script>alert('insufficient bank balance')</script>";
+                    }
+                    else if($_POST['amount'] <= 0){
+                        echo "<script>alert('Please enter a valid amount')</script>";
+                    }
+                    else{
+                        $getbankbalance = $dbc->query("select accountbalance from account_info where email = '$_POST[email]'");
+                        while($info = $getbankbalance->fetch_assoc()){
+                            $balance = $info['accountbalance'] + $_POST['amount'];
+                        }
+                        $bankbalance-=$_POST['amount'];
+                        $query_reader = mysqli_query($dbc,"UPDATE account_info SET accountbalance ='$balance' WHERE email = '$_POST[email]'");
+                        $query_reader = mysqli_query($dbc,"UPDATE account_info SET accountbalance ='$bankbalance' WHERE email = '$email'");
+                    }
+                      //echo "<Script> alert('here : ".$_POST['email']."');</script>";
+                }
+            ?>
 
 
 
 </div>
+<div id="Edit" class="w3-container w3-border city" style="display:none">
+            <h2>Edit Details</h2>
+            <p></p>
+
+            <?php 
+                //$query = "INSERT into signup_req values($lastid,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
+                //$query_reader = mysqli_query($dbc,$query);
+                //$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+?>
+        </div>
     </div>
 
 

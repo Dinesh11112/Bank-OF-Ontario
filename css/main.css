@@ -3,23 +3,28 @@ header{
     margin-left: 150px;
 }
 header img{
+   
     float: left;
-    margin-top:5px;
+  width: 100px;
+  height: 130px;
     
 }
 a{
     text-decoration: none;
 }
 h1{
-    font-size: 35px;
-    font-weight: normal;
+    position: relative;
+  top: 18px;
+  left: 10px;
+    font-size: 5px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color:rgb(64, 129, 155);
-    margin: 10px 0px 0px 60px;
+    padding-bottom: 5px;
 }
 nav{
     float: right;
-    padding-top: 0.5em;
+;
+    padding-top: 10px;
     padding-right: 1em;
     padding: 0.5em 1em 0em 0em;
 }
@@ -32,7 +37,7 @@ nav ul li{
 }
 nav ul li a{
     text-decoration: none;
-    color: gray;
+    margin-top: 15px;
     font-size: 22px;
 }
 nav ul li a:hover{
@@ -42,22 +47,26 @@ nav ul li a:hover{
     padding-left: 4em;
 }
 main{
-    padding-top: 5em;
+    padding: 2px;
 }
+
 #content h2{
     
-    padding-top: 3em;
+    padding-top: 3%;
     color:darkgray;
     font-family: monospace;
     margin-left: 80px;
-    font-size: 30px;
-    font-weight: normal;
+    font-size: 50px;
+    font-weight: bolder;
 }
 #content p{
+    text-indent: 50px;
     margin-left: 80px;
     color: black;
-    line-height: 1.8;
+    line-height: 2.0;
     padding-right: 45em;
+    font-size:20px;
+    
 }
 #content img{
     float: right;
@@ -66,7 +75,7 @@ main{
     height: 40%;
 }
 section h2{
-    padding:0;
+    padding:5px;
     margin: 0;
     font-size: 25px;
 }
@@ -91,7 +100,8 @@ section img{
     background-color:rgba(192, 240, 240, 0.493);
 }
 section{
-    margin-top: 420px;
+    padding-top: 380px;
+    padding-bottom: 250px ;
 }
 .account, .solutions{
     float:left;  
@@ -107,12 +117,10 @@ section{
     text-align: center;
 }
 footer{
-    background-color:rgba(192, 240, 240, 0.493); 
     color:rgb(64, 129, 155);
     font-size: 25px;
     letter-spacing: 2px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    padding-top: 2em;
     text-align: center;
 }
 #mail{
@@ -128,27 +136,32 @@ footer{
     padding: 1em 2em 1em 2em;
 }
 .bottom{
+    margin-top: 15px;
+    height: 10%;
+    padding: 9px 5px 6px 7px;
     background-color:rgb(64, 129, 155); 
     text-align:center;
-    margin-top: 150px;
+
 }
 .bottom a{
     text-decoration: none;
-    font-size: 10px;
+    font-size: 17px;
+    padding-top: 15px;
     color:white;
 
 }
 .bottom p{
-    text-align: left;
+    text-align: center;
     color:white;
     font-size:15px;
-    margin-left:150px;
+    margin-left:50px;
 }
 .bottom h2{
-     text-align: left;
+     text-align: center;
+     font-weight: bolder;
      color:white;
      padding-top: 2em;
-     margin-left: 150px;
+     margin-left: 50px;
      letter-spacing: 0;
      font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -156,7 +169,8 @@ footer{
 
 /* signup css ----------*/
 form {
-    border: 3px solid #f1f1f1;
+    
+    background-color: white;
   }
   .inputblocks {
     width: 40%; 

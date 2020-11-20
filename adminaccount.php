@@ -23,7 +23,52 @@ session_start();
     <main>
     <?php include 'headerimage.php';?>
     <h2> Welcome Admin</h2>
-    
+    <?php
+        if(isset($_POST['accept'])){
+
+            $ID = $_POST['param'];
+
+            $signupdataquery = "SELECT * from signup_req where ID = '$ID'";
+                $signupdata = mysqli_query($dbc,$signupdataquery);
+                while($data = mysqli_fetch_array($signupdata)){
+                    $username = $data['username'];
+                    $password = $data['password'];
+                    $emailid = $data['emailid'];
+                    $firstname = $data['firstname'];
+                    $lastname = $data['lastname'];
+                    $phone = $data['phone'];
+                    $DOB = $data['DOB'];
+                    $SIN = $data['SIN'];
+                    $address = $data['address'];
+                }
+                $lastrowid = $dbc->query('SELECT ID FROM user_authentication ORDER BY ID DESC LIMIT 1');
+          while($row = $lastrowid->fetch_assoc()){
+            $lastid = $row['ID'];
+          }
+          $lastid++;
+
+          $num0 = 2020;
+            $num1 = $DOB;
+            $num2 = (rand(1000,9999));
+            $randnum = $num0 . $num1 . $num2;
+
+
+        $query = "INSERT into user_authentication values($lastid,'$username','$password','$emailid')";
+        $query_reader = mysqli_query($dbc,$query);
+        $query = "INSERT into personal_info values($lastid,'$firstname','$lastname','','$phone','$emailid','$DOB','$address','$SIN','$username')";
+        $query_reader = mysqli_query($dbc,$query);
+        $query = "INSERT into account_info values($lastid,'$firstname','$randnum',2000,'$emailid')";
+        $query_reader = mysqli_query($dbc,$query);
+        $query = "DELETE FROM signup_req where ID = '$ID'";
+        $query_reader = mysqli_query($dbc,$query);
+        }
+
+        if(isset($_POST['reject'])){
+            $ID = $_POST['param'];
+            $query = "DELETE FROM signup_req where ID = '$ID'";
+        $query_reader = mysqli_query($dbc,$query);
+        }
+    ?>
     <div class="w3-container">
         <div class="w3-bar w3-white">
             <button class="w3-bar-item w3-button tablink w3-red" onclick="openTab(event,'AccountBalance')">Account Balance</button>
@@ -65,13 +110,13 @@ session_start();
                 $query = 'SELECT * from signup_req';
                 $r1 = mysqli_query($dbc,$query);
                 echo"<table>";
-                echo "<tr><th>User Name</th><th>First Name</th><th>Last Name</th><th>Phone</th><th>Email ID</th><th>Date Of Birth</th><th>Address</th><th>SIN</th>";
+                echo "<tr><th>User Name</th><th>First Name</th><th>Last Name</th><th>Phone</th><th>Email ID</th><th>Date Of Birth</th><th>Address</th><th>SIN</th><th>Accept/Reject</th>";
                 while($r = mysqli_fetch_array($r1)){
-                    echo "<tr><td>$r[username]</td><td>$r[firstname]</td><td>$r[lastname]</td><td>$r[phone]</td><td>$r[emailid]</td><td>$r[DOB]</td><td>$r[address]</td><td>$r[SIN]</td>";
+                    echo "<tr><td>$r[username]</td><td>$r[firstname]</td><td>$r[lastname]</td><td>$r[phone]</td><td>$r[emailid]</td><td>$r[DOB]</td><td>$r[address]</td><td>$r[SIN]</td><td><form method ='post'><input type='submit' name='accept' value='Accept'><input type='hidden' value='$r[ID]' name='param'></form></td><td><form action = 'adminaccount.php' method ='post'><input type='submit' name='reject' value='Reject'><input type='hidden' value='$r[ID]' name='param'></form></td>";
                 }
                 echo"</table>"; 
-                echo "<button onclick = test()>hello</button>";
-                echo "<div id='test'>hellooooooo</div>";?></p>
+                
+                ?></p>
         </div>
 
     </div>
@@ -90,12 +135,8 @@ function openTab(evt, cityName) {
   }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " w3-red";
-}
-function test(){
-    var t = document.getElementById('test');
-    t.style.display = "none";
-}
-</script> 
+}</script>
+
 
       </main>
     
