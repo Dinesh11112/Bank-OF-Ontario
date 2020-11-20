@@ -17,9 +17,9 @@ echo"
 <input id='mail' type='text' placeholder='EMAIL ADDRESS' name='mail' required>&nbsp;&nbsp;
 <input id='subscribe' type='submit' name='subscribe' value='SUBSCRIBE'></form>
 <section class='bottom'>
-  <h2>Bank Of Ontario</h2>
+  <h2>Bank Of Ontario</h2><br>
   <p>At BFO, we are in business to help our clients, employees and shareholders achieve what is important to them.<br><br> Our ability to create value for all BFO stakeholders is driven by a business culture based on common values:<br><br> Trust<br> Teamwork<br> Accountability<br><br>
-    All you have to do is sign-up and start exploring!</p><br><br>
+    All you have to do is sign-up and start exploring!</p><br>
   <a href='contact.php'>Contact Us</a>
   <a href='faq.php'>FAQ</a>&nbsp;&nbsp;
   <a href='terms.php'>Terms&Conditions</a>&nbsp;&nbsp;
