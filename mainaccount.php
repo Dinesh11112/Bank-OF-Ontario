@@ -77,7 +77,7 @@ session_start();
                     echo "<tr><th>Email ID</th><td> $r[email]</td></tr>";
                     echo "<tr><th>Date Of Birth</th><td> $r[DOB]</td></tr>";
                     echo "<tr><th>Address</th><td> $r[address]</td></tr>";
-                    echo "<tr><th>Social Insurance Number</th><td> $r[SIN]</td></tr>";
+                    echo "<tr><th>Social Insurance Number</th><td> $r[sinnumber]</td></tr>";
                 }
                 echo"</table>"; }?> 
         </div>
@@ -151,7 +151,7 @@ session_start();
                 
             $result = $dbc->query($query);
             if ($result->num_rows > 0) {
-                echo"<form method='POST' name='editform' onsubmit= 'return validate()'><table class='table table-striped'>";
+                echo"<form method='POST' name='editform' onsubmit='return validate()'><table class='table table-striped'>";
             while($r = $result->fetch_assoc()){
                 echo "<tr><th>User Name</th><td><input type='text' value=". $r['username']." name='username'></td></tr>";
                 echo "<tr><th>First Name</th><td><input type='text' name='firstname' value=". $r['firstname']."></td></tr>";
@@ -160,20 +160,48 @@ session_start();
                 echo "<tr><th>Email ID</th><td><input type='email' name='email' value =".$r['email']."></td></tr>";
                 echo "<tr><th>Date Of Birth</th><td><input type='text' name='DOB' value=".$r['DOB']."></td></tr>";
                 echo "<tr><th>Address</th><td><input type='text' name='address' value=".$r['address']."></td></tr>";
-                echo "<tr><th>Social Insurance Number</th><td><input type='number' name='SIN' value=".$r['SIN']."></td></tr>";
+                echo "<tr><th>Social Insurance Number</th><td><input type='text' name='SIN' value=".$r['sinnumber']."></td></tr>";
             }
-            echo "<tr><td><button type='submit'>Submit</button></td><td><button>Cancel</button></td></tr>";
+            echo "<tr><td><button type='submit' name='submit'>Submit</button></td><td></td></tr>";
             echo"</table></form>"; }
 
+            ?>
 
-            echo "<script> function validate(){";
+            <script>function validate(){
+                    var name = document.forms['editform']['username'].value;
+                    if(name == ''){
+                        alert("Firstname must be filled out");
 
+                        return false;
+                    }
 
-            echo "}</script>";
+            }</script>
+            <?php 
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+ 
+                $fname = $_POST['firstname'];
+                $lname =  $_POST['lastname'];
+                $username =  $_POST['username'];
+                $email =  $_POST['email'];
+                $dob =  $_POST['DOB'];
+                $phone =  $_POST['phone'];
+                $address =  $_POST['address'];
+                $sin =  $_POST['SIN'];
+
+                $query_reader = mysqli_query($dbc,"UPDATE personal_info SET firstname='$fname',
+                                                                            lastname='$lname',
+                                                                            username='$username',
+                                                                            email='$email',
+                                                                            sinnumber='$sin',
+                                                                            DOB='$dob',
+                                                                            phone='$phone',address='$address'
+                                                                             where User_Authentication_ID = '$ID'");
+            header("Refresh:0");    
+        }
                 //$query = "INSERT into signup_req values($lastid,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
                 //$query_reader = mysqli_query($dbc,$query);
                 //$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
-?>
+              ?>  
         </div>
     </div>
 
