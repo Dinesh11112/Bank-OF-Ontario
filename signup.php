@@ -8,46 +8,64 @@
     <link rel="shortcut icon" href="images/logoB.png"/>
     <link rel="stylesheet" href="css/main.css"/>
     <title>Bank Of Ontario</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+    $('.speaker').click(function(){
+            speechSynthesis.cancel()    ;
+      var text_to_read = $(this).prev().text();
+        var u = new SpeechSynthesisUtterance(text_to_read);
+   speechSynthesis.speak(u); if(!/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())){
+     u.rate = .2;
+    }
+    u.text = text_to_read.textContent;
+
+    });
+
+});
+</script>
 </head>
 <body>
     <?php include 'header.php';?>
     <main>
     <?php include 'headerimage.php';?>
-        <div id="content">
         <center>
         <form name = "signup" onsubmit="return validateForm()" method="POST">
     <div class="container">
-    <label for="firstname"><b>Firstname</b></label>
+    <label for="firstname"><b>Firstname</b>&nbsp;<img src="images/speak.png" class="speaker">
+</label>
     <input type="text" class = "inputblocks" placeholder="Enter Firstname" name="firstname" pattern="[a-zA-Z][a-zA-Z ]{2,}"><br>
 
-    <label for="lastname"><b>Lastname</b></label>
+    <label for="lastname"><b>Lastname</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
     <input type="text" class = "inputblocks" placeholder="Enter Lastname" name="lastname" pattern="[a-zA-Z][a-zA-Z ]{2,}"><br>
 
-    <label for="dateofbirth"><b>Dateofbirth</b></label>
+    <label for="dateofbirth"><b>Date of birth</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
     <input type="date" class = "inputblocks" placeholder="Enter Dateofbirth" name="dateofbirth" ><br>
 
-    <label for="sin"><b>Sin</b></label>
+    <label for="sin"><b>Sin</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
     <input type="number" class = "inputblocks" placeholder="Enter your Sin " name="sin"  ><br>
 
-    <label for="phone"><b>Phone</b></label>
+    <label for="phone"><b>Phone</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
     <input type="number" class = "inputblocks" placeholder="xxx-xxx-xxxx" name="phone" ><br>
 
-    <label for="address"><b>Address</b></label>
+    <label for="address"><b>Address</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
     <input type="text" class = "inputblocks" placeholder="Enter Address" name="address" ><br>
 
-    <label for="username"><b>Username</b></label>
+    <label for="username"><b>Username</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
     <input type="text" class = "inputblocks" placeholder="Enter Username" name="username" ><br>
 
-    <label for="email"><b>Email</b></label>
+    <label for="email"><b>Email</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
     <input type="email" class = "inputblocks" placeholder="Enter Email" name="email" ><br>
 
     <div id="password_div">
-    <label for="psw"><b>Password</b></label>
+    <label for="psw"><b>Password</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
     <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" ><br>
     </div>
 
     <div id="pass_confirm_div">
-    <label for="psw-repeat"><b>Confirm Password</b></label>
+    <label for="psw-repeat"><b>Confirm Password</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
     <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw-repeat" ><br>
     <div id="password_error"></div>
     </div>
@@ -98,7 +116,6 @@
           $lastid++;
         $query = "INSERT into signup_req values($lastid,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
         $query_reader = mysqli_query($dbc,$query);
-//        $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
 
         header("Location: http://localhost/bank-of-ontario/index.php");
  

@@ -12,6 +12,12 @@ header img{
 a{
     text-decoration: none;
 }
+
+.speaker{
+    height: 10%;
+    width: 10%;
+}
+
 h1{
     position: relative;
   top: 18px;
