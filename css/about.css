@@ -73,6 +73,10 @@ main{
     line-height: 1.5;
     padding-left: 4em;
 }
+
+#map{
+  float: right;
+}
 footer{
     margin-top: 150px;
     background-color:rgba(192, 240, 240, 0.493); 

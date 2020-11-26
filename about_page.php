@@ -33,6 +33,17 @@
         <p class="b">
             Bank Of Ontario is unique among Canada's big five banks in that<br> it has substantial exposure to emerging markets through its international<br> banking segment. This segment has generated momentum with record<br> results in the first quarter.These results were underpinned by growth<br> in its key Pacific Alliance countries--Chile,Columbia,Mexico and Peru.
         </p>
+        
+        <p class="a"> Where is Bank Of Ontario?</p>
+        
+        <p class = "b">
+        <p class = "map">
+        <?php include'googlemaps.php';?>
+        </p> 
+        <p class="b">
+        <br>81 Westmeadow Dr, Kitchener, ON N2N 3N1
+        </p>
+       
     </div>      
 </main>
 
