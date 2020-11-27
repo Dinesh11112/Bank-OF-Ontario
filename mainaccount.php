@@ -28,7 +28,6 @@ session_start();
         <div class="w3-bar w3-white">
             <button class="w3-bar-item w3-button tablink w3-red" onclick="openTab(event,'AccountBalance')">Account Balance</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'PersonalInformation')">Personal Information</button>
-            <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Transactions')">Transactions</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Transfer')">Transfer</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Edit')">Edit Details</button>
 
@@ -82,10 +81,7 @@ session_start();
                 echo"</table>"; }?> 
         </div>
 
-        <div id="Transactions" class="w3-container w3-border city" style="display:none">
-            <h2>Transactions</h2>
-            <p></p>
-        </div>
+        
 
 <div id="Transfer" class="w3-container w3-border city" style="display:none">
     <h2>Transfer</h2>
