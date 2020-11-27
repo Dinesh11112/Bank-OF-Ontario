@@ -164,11 +164,112 @@ session_start();
             ?>
 
             <script>function validate(){
-                    var name = document.forms['editform']['username'].value;
-                    if(name == ''){
+                    var Username = document.forms['editform']['username'].value;
+                    if(Username == ''){
+                        alert("Username must be filled out");
+
+                        return false;
+                    }
+                    var Firstname = document.forms['editform']['firstname'].value;
+                    let match = /\d+/.exec(Firstname);
+
+                    if(Firstname == ''){
                         alert("Firstname must be filled out");
 
                         return false;
+                    } 
+                    else{
+                        if(!match == ""){
+                        alert('First name should not contain numbers');
+                        return false;
+                        }
+                    }
+                    var Lastname = document.forms['editform']['lastname'].value;
+                    let lastnamematch = /\d+/.exec(Lastname);
+                    if(Lastname == ''){
+                        alert("Lastname must be filled out");
+
+                        return false;
+                    }
+                    else{
+                        if(!lastnamematch==""){
+                            alert("lastname should not contain numbers");
+                            return false;
+                        }
+                    }
+                    var Phone = document.forms['editform']['phone'].value;
+                    if(Phone == ''){
+                        alert("Phone must be filled out");
+
+                        return false;
+                    }
+                    else{
+                          if(Phone.length != 10){
+                          alert("Phone number should be 10 digits");
+                          return false;
+                          }
+                    }
+                    var Email = document.forms['editform']['email'].value;
+                    if(Email == ''){
+                        alert("Email must be filled out");
+
+                        return false;
+                    }
+                    var Dateofbirth = document.forms['editform']['DOB'].value;
+                    if(Dateofbirth == ''){
+                        alert("DOB must be filled out");
+
+                        return false;
+                    }
+                    else{
+      var today = new Date();
+      var nowyear = today.getFullYear();
+      var nowmonth = today.getMonth();
+      var nowday = today.getDate();
+
+      var Dateofbirth = new Date(Dateofbirth);
+
+      var birthyear = Dateofbirth.getFullYear();
+      var birthmonth = Dateofbirth.getMonth();
+      var birthday = Dateofbirth.getDate();
+
+      var age = nowyear - birthyear;
+
+      var age_month = nowmonth - birthmonth;
+      var age_day = nowday - birthday;
+
+
+      if (age > 100) {
+            alert("Age cannot be more than 100 Years.Please enter correct age")
+            return false;
+        }
+        if (age_month < 0 || (age_month == 0 && age_day < 0)) {
+            age = parseInt(age) - 1;
+
+        }
+        if ((age == 18 && age_month <= 0 && age_day <= 0) || age < 18) {
+            alert("Age should be more than 18 years.Please enter a valid Date of Birth");
+            return false;
+        }
+      
+    }
+                    var Address = document.forms['editform']['address'].value;
+                    if(Address == ''){
+                        alert("Address must be filled out");
+
+                        return false;
+                    }
+                    var sin = document.forms['editform']['SIN'].value;
+                    if(sin == ''){
+                        alert("SIN must be filled out");
+
+                        return false;
+                    }
+                    else{
+                    if(!(sin > 99999999 && sin < 1000000000) ){
+                    alert("please check your sin number");
+                    return false;
+                    }
                     }
 
             }</script>
