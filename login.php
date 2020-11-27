@@ -14,7 +14,7 @@
 
 /* Full-width inputs */
 .inputblocks {
-  width: 50%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -64,18 +64,20 @@ span.psw {
     <main>
     <?php include 'headerimage.php';?>
         <div id="content">
-        <form action="login.php" method="post">
+        <form action="login.php" name = "signin" onsubmit="return validateForm()" method="post">
+    <div class="content">
+    <h2>User Login</h2>
+    <form name="userlogin" method="post">
     <div class="container">
-    <label for="uname"><b>Username :</b></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" required>
-<br>
-    <label for="psw"><b>Password :</b></label>
-    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" required>
+      <label for="uname"><b>Username :</b></label>
+      <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" >
+      <label for="psw"><b>Password :</b></label>
+    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" >
 
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+    <button type="submit">Login</button><br><br>
+    <button type="button">Cancel</button>
+    </div>
+    </form></div>
     <?php
        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
@@ -122,13 +124,26 @@ span.psw {
       }*/
     ?>
   </div>
-
-  <div class="container" >
-    <button type="button" class="cancelbtn">Cancel</button>
-  </div>
 </form>
     </main>
     
     <?php include 'footer.php';?>
+
+    <script>
+
+  function validateForm() {
+  var x = document.forms["signin"]["uname"].value;
+  if (x == "") {
+    alert("UserName must be filled out");
+    return false;
+  }
+  var y = document.forms["signin"]["psw"].value;
+  if (y == "") {
+    alert("Password must be filled out");
+    return false;
+  }
+}
+
+    </script>
 </body>
 </html>
