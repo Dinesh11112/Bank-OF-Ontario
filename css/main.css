@@ -106,8 +106,9 @@ section img{
     background-color:rgba(192, 240, 240, 0.493);
 }
 section{
-    padding-top: 380px;
+    padding-top: 30px;
     padding-bottom: 250px ;
+   
 }
 .account, .solutions{
     float:left;  
@@ -124,7 +125,7 @@ section{
 }
 footer{
     color:rgb(64, 129, 155);
-    font-size: 25px;
+    font-size: 20px;
     letter-spacing: 2px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
@@ -179,13 +180,12 @@ form {
     background-color: white;
   }
   .inputblocks {
-    width: 40%; 
-    padding:12px 20px;
-    margin: 8px 8px;
-    display: block;
-    border: 2px solid #ccc;
-    box-sizing: border-box;
-    text-align:center;
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
   }
   button {
     background-color: skyblue;
