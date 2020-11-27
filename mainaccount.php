@@ -171,7 +171,7 @@ session_start();
                     var Username = document.forms['editform']['username'].value;
                     if(Username == ''){
                         alert("Username must be filled out");
-                        alert(match);
+
                         return false;
                     }
                     var Firstname = document.forms['editform']['firstname'].value;
