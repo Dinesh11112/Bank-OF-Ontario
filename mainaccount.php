@@ -171,20 +171,35 @@ session_start();
                     var Username = document.forms['editform']['username'].value;
                     if(Username == ''){
                         alert("Username must be filled out");
-
+                        alert(match);
                         return false;
                     }
                     var Firstname = document.forms['editform']['firstname'].value;
+                    let match = /\d+/.exec(Firstname);
+
                     if(Firstname == ''){
                         alert("Firstname must be filled out");
 
                         return false;
                     } 
+                    else{
+                        if(!match == ""){
+                        alert('First name should not contain numbers');
+                        return false;
+                        }
+                    }
                     var Lastname = document.forms['editform']['lastname'].value;
+                    let lastnamematch = /\d+/.exec(Lastname);
                     if(Lastname == ''){
                         alert("Lastname must be filled out");
 
                         return false;
+                    }
+                    else{
+                        if(!lastnamematch==""){
+                            alert("lastname should not contain numbers");
+                            return false;
+                        }
                     }
                     var Phone = document.forms['editform']['phone'].value;
                     if(Phone == ''){
