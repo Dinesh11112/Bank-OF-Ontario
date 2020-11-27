@@ -22,7 +22,7 @@ session_start();
     <?php include 'userheader.php';?>
     <main>
     <?php include 'headerimage.php';?>
-    <h2> Welcome Admin</h2>
+    <h2> Welcome Admin </h2>
     <?php
         if(isset($_POST['accept'])){
 
@@ -57,7 +57,7 @@ session_start();
         $query_reader = mysqli_query($dbc,$query);
         $query = "INSERT into personal_info values($lastid,'$firstname','$lastname','','$phone','$emailid','$DOB','$address','$SIN','$username')";
         $query_reader = mysqli_query($dbc,$query);
-        $query = "INSERT into account_info values($lastid,'$firstname','$randnum',2000,'$emailid')";
+        $query = "INSERT into account_info values($lastid,'$firstname','$randnum',2000,'$emailid','online')";
         $query_reader = mysqli_query($dbc,$query);
         $query = "DELETE FROM signup_req where ID = '$ID'";
         $query_reader = mysqli_query($dbc,$query);
@@ -71,14 +71,24 @@ session_start();
     ?>
     <div class="w3-container">
         <div class="w3-bar w3-white">
-            <button class="w3-bar-item w3-button tablink w3-red" onclick="openTab(event,'AccountBalance')">Account Balance</button>
+            <button class="w3-bar-item w3-button tablink w3-red" onclick="openTab(event,'Accounts')">Accounts</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'PersonalInformation')">Personal Information</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Transactions')">Transactions</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Signup')">Signup Requests</button>
         </div>
-        <div id="AccountBalance" class="w3-container w3-border city">
-            <h2>AccountBalance</h2>
-            <p></p>
+        <div id="Accounts" class="w3-container w3-border city">
+            <h2>Accounts</h2>
+            <p><?php 
+                $query = 'SELECT * from account_info';
+                $r1 = mysqli_query($dbc,$query);
+                echo"<table class='table table-striped'>";
+                echo "<tr><th>User Name</th><th>Account Number</th><th>Email</th><th>online/freeze</th>";
+                while($r = mysqli_fetch_array($r1)){
+                    echo "<tr><td>$r[accountholdername]</td><td>$r[accountnumber]</td><td>$r[email]</td><td><form method ='post'><input type='submit' name='accept' value='Freeze'><input type='hidden' name='unfreeze' value='unfreeze'><input type='hidden' value='$r[User_Authentication_ID]' name='param'></form></td>";
+                }
+                echo"</table>"; 
+                
+                ?></p>
         </div>
 
         <div id="PersonalInformation" class="w3-container w3-border city" style="display:none">
@@ -109,7 +119,7 @@ session_start();
             <p><?php 
                 $query = 'SELECT * from signup_req';
                 $r1 = mysqli_query($dbc,$query);
-                echo"<table>";
+                echo"<table class='table table-striped'>";
                 echo "<tr><th>User Name</th><th>First Name</th><th>Last Name</th><th>Phone</th><th>Email ID</th><th>Date Of Birth</th><th>Address</th><th>SIN</th><th>Accept/Reject</th>";
                 while($r = mysqli_fetch_array($r1)){
                     echo "<tr><td>$r[username]</td><td>$r[firstname]</td><td>$r[lastname]</td><td>$r[phone]</td><td>$r[emailid]</td><td>$r[DOB]</td><td>$r[address]</td><td>$r[SIN]</td><td><form method ='post'><input type='submit' name='accept' value='Accept'><input type='hidden' value='$r[ID]' name='param'></form></td><td><form action = 'adminaccount.php' method ='post'><input type='submit' name='reject' value='Reject'><input type='hidden' value='$r[ID]' name='param'></form></td>";
