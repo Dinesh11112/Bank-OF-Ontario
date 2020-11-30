@@ -88,19 +88,6 @@ $(document).ready(function(){
         $lname = mysqli_real_escape_string($dbc,strip_tags($_POST['lastname']));
         $username = mysqli_real_escape_string($dbc,strip_tags($_POST['username']));
         $email = mysqli_real_escape_string($dbc,strip_tags($_POST['email']));
-         /*if(($_SERVER['REQUEST_METHOD']=="POST")){
-
-        $pattern = "^[a-zA-Z0-9_]*@[a-zA-Z]*.[a-zA-Z]{2,4}";
-        $mail = $_POST['mail'];
-
-        if(empty($mail) ){
-            echo "Please enter valid email.";
-        } elseif (!preg_match($pattern,$mail)){
-            echo "Please enter valid email.";
-        } else {
-            echo "You entered valid email.";
-        }
-    }*/ 
         $password = mysqli_real_escape_string($dbc,strip_tags($_POST['psw']));
         $dob = mysqli_real_escape_string($dbc,strip_tags($_POST['dateofbirth']));
         $phone = mysqli_real_escape_string($dbc,strip_tags($_POST['phone']));
