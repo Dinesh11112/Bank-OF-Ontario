@@ -15,7 +15,7 @@ echo "
     </header>
     <nav>
         <ul>
-            <li><a href='index.php' >Personal</a></li>
+            <li><a href='mainaccount.php' >My Account</a></li>
             <li><a href='about_page.php' >About</a></li>
             <li><a href='Index.php' >LogOut</a></li>
         </ul>
