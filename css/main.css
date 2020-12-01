@@ -20,6 +20,11 @@ a{
     height: 10%;
     width: 10%;
 }
+#bon{
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 7em;
+}
 
 h1{
     position: relative;
