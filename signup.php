@@ -30,56 +30,62 @@ $(document).ready(function(){
 <body>
     <?php include 'header.php';?>
     <main>
-    <?php include 'headerimage.php';?>
-        <center>
+        
         <form name = "signup" onsubmit="return validateForm()" method="POST">
-    <div class="container">
+    <div class="main-container">
+      <div class="container2">
+        <h1>HELLO!</h1>
+        <p>Enter your details and start journey with us</p>
+     </div>
+    <div class="container1">
+      <p>Create Account</p>
     <label for="firstname"><b>Firstname</b>&nbsp;<img src="images/speak.png" class="speaker">
 </label>
-    <input type="text" class = "inputblocks" placeholder="Enter Firstname" name="firstname" pattern="[a-zA-Z][a-zA-Z ]{2,}"><br>
+    <input type="text" class = "inputblocks1" placeholder="Enter Firstname" name="firstname" pattern="[a-zA-Z][a-zA-Z ]{2,}"><br>
 
     <label for="lastname"><b>Lastname</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Lastname" name="lastname" pattern="[a-zA-Z][a-zA-Z ]{2,}"><br>
+    <input type="text" class = "inputblocks1" placeholder="Enter Lastname" name="lastname" pattern="[a-zA-Z][a-zA-Z ]{2,}"><br>
 
     <label for="dateofbirth"><b>Date of birth</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
-    <input type="date" class = "inputblocks" placeholder="Enter Dateofbirth" name="dateofbirth" ><br>
+    <input type="date" class = "inputblocks1" placeholder="Enter Dateofbirth" name="dateofbirth" ><br>
 
     <label for="sin"><b>Sin</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
-    <input type="number" class = "inputblocks" placeholder="Enter your Sin " name="sin"  ><br>
+    <input type="number" class = "inputblocks1" placeholder="Enter your Sin " name="sin"  ><br>
 
     <label for="phone"><b>Phone</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
-    <input type="number" class = "inputblocks" placeholder="xxx-xxx-xxxx" name="phone" ><br>
+    <input type="number" class = "inputblocks1" placeholder="xxx-xxx-xxxx" name="phone" ><br>
 
     <label for="address"><b>Address</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Address" name="address" ><br>
+    <input type="text" class = "inputblocks1" placeholder="Enter Address" name="address" ><br>
 
     <label for="username"><b>Username</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
-    <input type="text" class = "inputblocks" placeholder="Enter Username" name="username" ><br>
+    <input type="text" class = "inputblocks1" placeholder="Enter Username" name="username" ><br>
 
     <label for="email"><b>Email</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
-    <input type="email" class = "inputblocks" placeholder="Enter Email" name="email" ><br>
+    <input type="email" class = "inputblocks1" placeholder="Enter Email" name="email" ><br>
 
     <div id="password_div">
     <label for="psw"><b>Password</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
-    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" ><br>
+    <input type="password" class = "inputblocks1" placeholder="Enter Password" name="psw" ><br>
     </div>
 
     <div id="pass_confirm_div">
     <label for="psw-repeat"><b>Confirm Password</b>&nbsp;<img src="images/speak.png" class="speaker"></label>
-    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw-repeat" ><br>
+    <input type="password" class = "inputblocks1" placeholder="Enter Password" name="psw-repeat" ><br>
     <div id="password_error"></div>
     </div>
 
     <h4>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</h4><br>
 
-    <button type="submit">Signup</button><br>
-    <button type="button"><a href="index.php">Cancel</a></button>
+    <button class="btn1" type="submit">Signup</button><br>
+    <button  class="btn1" type="button"><a href="index.php">Cancel</a></button>
     
   </div>
+</div>
 
   
 </form>
-</center>
+
     </main>
     <?php 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -122,7 +128,7 @@ $(document).ready(function(){
     }
 
 ?>
-    <?php include 'footer.php';?>
+    
 
     <script>
     function validateForm() {
