@@ -13,7 +13,7 @@ echo "
         <a href='index.php'><img src='images/logoB.png' alt='logo' width='50' height='50'/></a>
         
     </header><h1 id='bon'><a href='index.php'>Bank Of Ontario<a></h1>
-    <nav>
+    <nav id='navigation'>
         <ul>
             <li><a href='about_page.php'>About</a></li>
             <li><a href='login.php'>User LogIn</a></li>
