@@ -20,6 +20,7 @@ a{
     height: 10%;
     width: 10%;
 }
+
 #bon{
     position: absolute;
     margin-top: 30px;
@@ -35,12 +36,13 @@ h1{
     color:rgb(64, 129, 155);
     padding-bottom: 5px;
 }
+#navigation{
+    position: relative;
+}
 nav{
     float: right;
-;
-    padding-top: 10px;
     padding-right: 1em;
-    padding: 0.5em 1em 0em 0em;
+    padding: 3.5em 1em 0em 0em;
 }
 nav ul{
     list-style-type: none;
