@@ -18,7 +18,7 @@
     <main>
     
         <div id="content">
-        <form action="login.php" name = "signin" onsubmit="return validateForm()" method="post">
+        <form action="Adminlogin.php" name = "signin" onsubmit="return validateForm()" method="post">
           <div class="frame">
             <form name="userlogin" method="post">
               <div class="container">
@@ -56,7 +56,7 @@
                   }
                   header("Location:adminaccount.php");
               } else {
-                  echo "Wrong Credentials";
+                  echo "<script>alert('Wrong Credentials');</script>";
               }
               }
         }
