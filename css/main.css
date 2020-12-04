@@ -7,9 +7,10 @@ header{
 }
 header img{
    
-  float: left;
-  width: 100px;
-  height: 130px;
+    float: left;
+  width: 80px;
+  height:90px;
+
     
 }
 a{
@@ -74,6 +75,7 @@ main{
     margin-left: 150px;
     margin-top: 10%;
     border-radius: 50%;
+
 
 }
 /* Full-width inputs */
@@ -145,7 +147,7 @@ button {
     margin-left: 80px;
     color: black;
     line-height: 2.0;
-    padding-right: 45em;
+    padding-right: 2 em;
     font-size:20px;
     
 }
@@ -181,7 +183,7 @@ section img{
     background-color:rgba(192, 240, 240, 0.493);
 }
 section{
-    padding-top: 30px;
+    padding-top: 60px;
     padding-bottom: 250px ;
    
 }
