@@ -9,75 +9,30 @@
     <link rel="stylesheet" href="css/main.css"/>
     <title>Bank Of Ontario</title>
 </head>
-<style>
-
-
-/* Full-width inputs */
-.inputblocks {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: skyblue;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
-}
-
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color:blue;
-}
-
-r
-
-/* Add padding to containers */
-.container {
-  padding: 16px;
-}
-
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
-}*/
-</style>
 
 <body>
     <?php include 'header.php';?>
     <main>
-    <?php include 'headerimage.php';?>
         <div id="content">
         <form action="login.php" name = "signin" onsubmit="return validateForm()" method="post">
-    <div class="content">
-    <h2>User Login</h2>
-    <form name="userlogin" method="post">
-    <div class="container">
-      <label for="uname"><b>Username :</b></label>
-      <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" >
-      <label for="psw"><b>Password :</b></label>
-    <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" >
-
-    <button type="submit">Login</button><br><br>
-    <button type="button">Cancel</button>
-    </div>
-    </form></div>
+          <div class="frame">
+            <form name="userlogin" method="post">
+              <div class="container">
+                <img class="log" src="Images/login.png"/>
+                <div class="content">
+                <h3>User Login</h3>
+                
+                <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" ><br>
+                
+                <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" ><br>
+                <div class="btn">
+                  <button type="submit">Login</button><br><br>
+                  <button type="button">Cancel</button>
+                </div>
+               </div>
+              </div>
+            </form>
+          </div>
     <?php
        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
@@ -123,11 +78,10 @@ span.psw {
             }
       }*/
     ?>
-  </div>
-</form>
-    </main>
-    
-    <?php include 'footer.php';?>
+  </form>
+    </div>
+</main>
+   
 
     <script>
 
