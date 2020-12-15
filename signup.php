@@ -84,8 +84,8 @@ $(document).ready(function(){
   </div>
 </div><center>
 <div id="invertion">
-<input type="button" onclick="convertfunctions()" id = "invert" value="InvertColor">
-<input type="button" onclick="revertfunction()" id = "revert" style="display:none" value ="RevertColor"><br>
+<input type="button" onclick="convertfunctions()" id = "invert" value="Dark Mode">
+<input type="button" onclick="revertfunction()" id = "revert" style="display:none" value ="Light Mode"><br>
 </center></div>
   
 </form>
