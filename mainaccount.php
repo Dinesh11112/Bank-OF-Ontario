@@ -22,7 +22,7 @@ session_start();
     <?php include 'userheader.php';?>
     <main>
     <?php include 'headerimage.php';?>
-    <h2> Welcome  <?php echo $_SESSION['uname'] ?></h2>
+    <h2> Welcome  <?php if($_SESSION['uname']!=""){echo $_SESSION['uname'];} ?></h2>
     
     <div class="w3-container">
         <div class="w3-bar w3-white">
@@ -36,6 +36,7 @@ session_start();
         <div id="AccountBalance" class="w3-container w3-border city">
             <h2>Account Balance</h2>
             <p> <?php
+                if($_SESSION['uname'] != ""){
                 $ID = $_SESSION["ID"];
                 $query2 = "SELECT * from personal_info where user_authentication_id = '$ID'"; 
                 $result2 = $dbc->query($query2);
@@ -55,6 +56,7 @@ session_start();
                     }
                     echo"</table>"; 
                     }
+                }
                     ?> 
             </p>
         </div>
@@ -85,31 +87,31 @@ session_start();
 
 <div id="Transfer" class="w3-container w3-border city" style="display:none">
     <h2>Transfer</h2>
-    <p>You can Interac amount to your any other account</p>
+    <p>You can Interac amount to any other account</p>
     <form method="post">
         <div class="container">
             <?php 
             $fetchinfo = $dbc->query("select * from account_info where User_Authentication_ID = '$ID'");
+            echo "<table class='table table-striped'><tr>";
             while($info = $fetchinfo->fetch_assoc()){
                 $email = $info['email'];
                 $bankbalance = $info['accountbalance'];
-                echo '<label for="accountnumber"><b>AccountNumber:</b>&nbsp;&nbsp;'.$info['accountnumber'].'</label><br><br>   
-                <label for="accountbalance"><b>AccountBalance:</b>&nbsp;&nbsp;'.$bankbalance.'</label><br><br>';
-               
-            }
-
-                echo "<label for='email'><b>Send To :</b></label>";
+                echo '<th><label for="accountnumber">AccountNumber:</label></th><td><label>'.$info['accountnumber'].   '</label></td></tr><tr>
+                <th><label for="accountbalance">AccountBalance:</label></th><td><label>'.$bankbalance.'</label></td></tr>';}
+                echo "<tr><th><label for='email'>Send To :</label></th>";
 
             $result = $dbc->query("select email from personal_info"); 
-            echo '<select name="email">';
+            echo '<td><select name="email">';
             while ($row = $result->fetch_assoc()) {
                 if($email != $row['email'])
                     echo '<option name="mail" value="'.$row['email'].'">'.$row['email'].'</option>';
             }
-            echo '</select>'
-            ?><br><br>
-            <label for="amount" name="amount"><b>Amount</b></label>
-            <input type="number" class = "inputblocks" placeholder="Enter amount to send" name="amount"><br>
+            echo '</select></td></tr>'
+            ?><tr>
+            <th><label for="amount" name="amount">Amount</label></th>
+            <td><input type="number" class = "inputblocks" placeholder="Enter amount to send" name="amount"></td>
+        </tr>
+        </table>
             <button type="submit" name="transferform">Send</button><br>
             <button type="button">Cancel</button>
         </div>  

@@ -27,17 +27,18 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<body>
+<body >
     <?php include 'header.php';?>
-    <main>
+
+    <main id="signupbody">
         
         <form name = "signup" onsubmit="return validateForm()" method="POST">
     <div class="main-container">
       <div class="container2">
-        <h1>HELLO!</h1>
-        <p>Enter your details and start journey with us</p>
+        <h1 class="whitetext">HELLO!</h1>
+        <p class="whitetext">Enter your details and start journey with us</p>
      </div>
-    <div class="container1">
+    <div class="container1" id="formback">
       <p>Create Account</p>
     <label for="firstname"><b>Firstname</b>&nbsp;<img src="images/speak.png" class="speaker">
 </label>
@@ -81,8 +82,11 @@ $(document).ready(function(){
     <button  class="btn1" type="button"><a href="index.php">Cancel</a></button>
     
   </div>
-</div>
-
+</div><center>
+<div id="invertion">
+<input type="button" onclick="convertfunctions()" id = "invert" value="InvertColor">
+<input type="button" onclick="revertfunction()" id = "revert" style="display:none" value ="RevertColor"><br>
+</center></div>
   
 </form>
 
@@ -100,7 +104,6 @@ $(document).ready(function(){
         $address = mysqli_real_escape_string($dbc,strip_tags($_POST['address']));
         $sin = mysqli_real_escape_string($dbc,strip_tags($_POST['sin']));
        // require('mysqli_connect.php');
-        session_start();
 
           $lastrowid = $dbc->query('SELECT ID FROM signup_req ORDER BY ID DESC LIMIT 1');
           while($row = $lastrowid->fetch_assoc()){
@@ -109,7 +112,7 @@ $(document).ready(function(){
           $lastid++;
         $query = "INSERT into signup_req values($lastid,'$username','$password','$email','$phone','$fname','$lname','$dob','$address','$sin')";
         $query_reader = mysqli_query($dbc,$query);
-
+          echo "<script>alert('account created successfully please wait till the admin approves your account')";
         header("Location: http://localhost/bank-of-ontario/index.php");
  
     }
@@ -217,6 +220,30 @@ $(document).ready(function(){
   }
 }
  
+function convertfunctions(){
+  document.getElementById("signupbody").style.backgroundColor = "black";
+  document.getElementById("formback").style.backgroundColor = "black";
+  document.getElementById("formback").style.color = "white";
+  var elements = document.getElementsByClassName('whitetext'); // get all elements
+	for(var i = 0; i < elements.length; i++){
+		elements[i].style.color = "white";
+  }
+  document.getElementById("revert").style.display="inline";
+  document.getElementById("invert").style.display="none";  
+}
+
+function revertfunction(){
+  document.getElementById("revert").style.display="none";
+  document.getElementById("invert").style.display="inline"; 
+  document.getElementById("signupbody").style.backgroundColor = "white";
+  document.getElementById("formback").style.backgroundColor = "white";
+  document.getElementById("formback").style.color = "black";
+  var elements = document.getElementsByClassName('whitetext'); // get all elements
+	for(var i = 0; i < elements.length; i++){
+		elements[i].style.color = "black";
+}
+}
+
     </script>
 </body>
 </html>
