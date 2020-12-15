@@ -8,8 +8,9 @@ header{
 header img{
    
     float: left;
+    padding-top: 35%;
   width: 80px;
-  height:90px;
+  height:110px;
 
     
 }
@@ -69,15 +70,15 @@ main{
 
 }
 #content .container .log{
-    width: 40%;
-    height: 470px;
-    margin-right: 20px;
-    margin-left: 150px;
-    margin-top: 10%;
-    border-radius: 50%;
-
-
+    float: right;
+    height: 60%;
+    width: 30%;
+    margin-top: 20%;
+    margin-right: -10%;
+    padding: 0;
+    border-radius: 30%;
 }
+
 /* Full-width inputs */
 .inputblocks {
     width:20%;
@@ -191,7 +192,7 @@ section{
     float:left;  
     background-color:rgba(192, 240, 240, 0.493); 
     width:33.3%; 
-    padding-bottom: 5em;
+    padding-bottom: 3em;
     text-align: center;
 }
 .product{
@@ -262,7 +263,6 @@ footer{
 label{
     width: 30%;
     margin-left: 10%;
-    font-size: 20px;
 }
 .main-container{
     display: flex;
@@ -304,4 +304,51 @@ h4{
     margin-left: 180px;
 }
 
+.revert{
+    display: none;
+}
 
+@media only screen and (max-width:1024px) {
+    header img, #bon, footer form{
+        display: none;        
+    }
+
+    #navigation{
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    #content img{
+        float: none;
+        margin-left: 30%;
+        margin-right: 30%;    
+    }
+
+
+
+}
+
+@media only screen and (max-width:768px){
+    header img, #bon, footer form{
+        display: none;        
+    }
+    #navigation{
+        margin: 0;
+        text-align: center;
+        margin-left: 30%;
+        margin-right: 30%;   
+    }
+    #navigation li{
+        display: block;
+
+    }
+
+    #content img{
+        float: none;
+        margin-left: 30%;
+        margin-right: 30%;    
+    }
+
+
+}

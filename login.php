@@ -15,15 +15,11 @@
     <main>
         <div id="content">
         <form action="login.php" name = "signin" onsubmit="return validateForm()" method="post">
-          <div class="frame">
-            <form name="userlogin" method="post">
               <div class="container">
                 <img class="log" src="Images/login.png"/>
-                <div class="content">
+                <div class="content" id="login">
                 <h3>User Login</h3>
-                
                 <input type="text" class = "inputblocks" placeholder="Enter Username" name="uname" ><br>
-                
                 <input type="password" class = "inputblocks" placeholder="Enter Password" name="psw" ><br>
                 <div class="btn">
                   <button type="submit">Login</button><br><br>
@@ -51,32 +47,10 @@
                   }
                   header("Location:mainaccount.php");
 
-              } else {
-                  echo "Wrong Credentials";
+              }} else {
+                  echo "<script>alert('Wrong Credentials Please try again');</script>";
               }
               }
-        }/*
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        session_start();
-        $_SESSION["uname"] = $_POST['uname'];
-        $statement = mysqli_prepare($dbc, "Select * from user_authentication WHERE username = ? and password=?");
-            mysqli_stmt_bind_param($statement, 'ss', $_SESSION["uname"], $_POST['psw']);
-            mysqli_stmt_execute($statement);
-            mysqli_stmt_store_result($statement);
-            if(mysqli_stmt_num_rows($statement)==1){   
-                $q = "select ID from user_authentication where username=$_SESSION[uname]" ;
-                $r = @mysqli_query($dbc, $q);
-                  if (mysqli_affected_rows($dbc) != 0) { 
-                    while($r1 = mysqli_fetch_array($r,mysqli_assoc)){
-                      echo "<script>alert('here');</script>";
-                        $_SESSION["ID"] = $r1['ID'];
-                    }
-                  }  
-            }
-            else{
-                echo "<h3>Wrong Credentials! Please try again!</h3>";
-            }
-      }*/
     ?>
   </form>
     </div>

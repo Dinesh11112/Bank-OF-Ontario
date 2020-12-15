@@ -10,7 +10,7 @@ echo "
 </head>
 <body>
     <header>
-        <a href='index.php'><img src='images/logoB.png' alt='logo' width='50' height='50'/></a>
+        <a href='index.php'><img src='images/logoB.png'  alt='logo' longdesc='header.php' width='50' height='50'/></a>
         
     </header><h1 id='bon'><a href='index.php'>Bank Of Ontario<a></h1>
     <nav id='navigation'>
